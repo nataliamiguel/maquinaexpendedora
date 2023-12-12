@@ -32,13 +32,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity DISPLAY_COUNTER is
-  Port ( clk : in STD_LOGIC;
-           reset : in STD_LOGIC;
-           count_int : in STD_LOGIC;
-           count_dec : in STD_LOGIC;
-           digsel : out STD_LOGIC_VECTOR (3 downto 0);
-           segment : out STD_LOGIC_VECTOR (6 downto 0));
-           
+Port ( clk : in STD_LOGIC;
+       reset : in STD_LOGIC;
+       count_int : in STD_LOGIC_VECTOR (3 downto 0);
+       count_dec : in STD_LOGIC_VECTOR (3 downto 0);
+       digsel : out STD_LOGIC_VECTOR (3 downto 0);
+       segment : out STD_LOGIC_VECTOR (6 downto 0));      
 end DISPLAY_COUNTER;
 
 architecture Behavioral of DISPLAY_COUNTER is
