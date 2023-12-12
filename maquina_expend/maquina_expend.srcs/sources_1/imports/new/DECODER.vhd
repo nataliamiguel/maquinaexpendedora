@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DECODER is
 PORT (
     code : IN std_logic_vector(3 DOWNTO 0);
-    segmento : OUT std_logic_vector(6 DOWNTO 0)
+    segment : OUT std_logic_vector(6 DOWNTO 0)
 );
 end DECODER;
 

@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity ERROR is
 PORT (
     error : IN std_logic;
-    segmento_error : OUT std_logic_vector(6 DOWNTO 0)
+    segment_error : OUT std_logic_vector(6 DOWNTO 0)
 );
 end ERROR;
 
