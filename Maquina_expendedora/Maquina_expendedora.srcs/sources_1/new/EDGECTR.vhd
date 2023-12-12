@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 05.12.2023 15:54:02
+-- Create Date: 12.12.2023 15:57:21
 -- Design Name: 
--- Module Name: Top - Behavioral
+-- Module Name: EDGECTR - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,24 +31,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Top is
---  Port ( );
-PORT (
-    CLK: IN std_logic;
-    COIN: IN std_logic_vector(2 DOWNTO 0);
-    reassemble: IN std_logic;
-    SW: IN std_logic_vector(3 DOWNTO 0);
-    digsel: OUT std_logic_vector(7 DOWNTO 0);
-    led: OUT std_logic 
-    );
-end Top;
+entity EDGECTR is
+    Port ( CLK : in STD_LOGIC;
+           SYNC_IN : in STD_LOGIC_vector;
+           EDGE : out STD_LOGIC_vector);
+end EDGECTR;
 
-architecture Behavioral of Top is
-component EDGEDCTR is
- Port ( CLK : in STD_LOGIC;
- SYNC_IN : in std_logic_vector;
- EDGE : out std_logic_vector
- );
-end component;
+architecture Behavioral of EDGECTR is
+
 begin
+
+
 end Behavioral;
