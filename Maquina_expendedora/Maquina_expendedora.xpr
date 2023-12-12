@@ -96,7 +96,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-<<<<<<< Updated upstream
       <File Path="$PSRCDIR/sources_1/new/DECODER.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -105,9 +104,6 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/ERROR.vhd">
-=======
-      <File Path="$PSRCDIR/sources_1/new/EDGECTR.vhd">
->>>>>>> Stashed changes
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
