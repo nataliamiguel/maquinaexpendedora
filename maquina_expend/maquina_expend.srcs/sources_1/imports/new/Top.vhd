@@ -35,7 +35,7 @@ entity Top is
 --  Port ( );
 PORT (
     CLK: IN std_logic;
-    COIN: IN std_logic_vector(2 DOWNTO 0);
+    COIN: IN std_logic_vector(3 DOWNTO 0);
     reassemble: IN std_logic;
     SW: IN std_logic_vector(3 DOWNTO 0);
     digsel: OUT std_logic_vector(7 DOWNTO 0);
