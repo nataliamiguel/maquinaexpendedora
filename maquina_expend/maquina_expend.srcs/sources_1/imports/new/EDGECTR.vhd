@@ -33,8 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity EDGECTR is
     Port ( CLK : in STD_LOGIC;
-           SYNC_IN : in STD_LOGIC_vector;
-           EDGE : out STD_LOGIC_vector);
+           SYNC_IN : in STD_LOGIC_vector(3 downto 0);
+           EDGE : out STD_LOGIC_vector(3 downto 0));
 end EDGECTR;
 
 architecture Behavioral of EDGECTR is
