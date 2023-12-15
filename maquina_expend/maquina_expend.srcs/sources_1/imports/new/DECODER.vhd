@@ -41,7 +41,7 @@ end DECODER;
 ARCHITECTURE dataflow OF DECODER IS
 BEGIN
     WITH code SELECT
-        segmento <= "0000001" WHEN "0000",
+        segment <= "0000001" WHEN "0000",
                     "1001111" WHEN "0001",
                     "0010010" WHEN "0010",
                     "0000110" WHEN "0011",
