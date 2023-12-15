@@ -36,7 +36,8 @@ Port (  clk : in STD_LOGIC;
         reset : in STD_LOGIC;
         sw : in STD_LOGIC_VECTOR (2 downto 0);
         digsel : out STD_LOGIC_VECTOR (3 downto 0);
-        segment : out STD_LOGIC_VECTOR (6 downto 0));
+        segment : out STD_LOGIC_VECTOR (6 downto 0);
+        error : out std_logic);
 end DISPLAY_OPTION;
 
 architecture Behavioral of DISPLAY_OPTION is

@@ -38,7 +38,8 @@ entity COMPARE is
            count_dec : in STD_LOGIC_VECTOR (2 downto 0);
            count_int : in STD_LOGIC;
            reset : in STD_LOGIC;
-           importe_ok : in STD_LOGIC);
+           importe_ok : out STD_LOGIC;
+           error : out std_logic);
 end COMPARE;
 
 architecture Behavioral of COMPARE is
