@@ -36,8 +36,7 @@ entity COUNTER is
            CLK : in STD_LOGIC;
            COIN : in STD_LOGIC_VECTOR (3 downto 0);
            OK : in STD_LOGIC;
-           count_int : out STD_LOGIC_VECTOR (2 downto 0);
-           count_dec : out STD_LOGIC_VECTOR (2 downto 0));
+           count : out STD_LOGIC_VECTOR (6 downto 0));
 end COUNTER;
 
 architecture Behavioral of COUNTER is

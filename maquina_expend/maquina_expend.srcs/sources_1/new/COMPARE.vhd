@@ -33,10 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity COMPARE is
     Port ( CLK : in STD_LOGIC;
-           price_int : in STD_LOGIC_VECTOR (2 downto 0);
-           price_dec : in STD_LOGIC_VECTOR (2 downto 0);
-           count_dec : in STD_LOGIC_VECTOR (2 downto 0);
-           count_int : in STD_LOGIC;
+           price : in STD_LOGIC_VECTOR (6 downto 0);
+           count : in STD_LOGIC_VECTOR (6 downto 0);
            reset : in STD_LOGIC;
            importe_ok : out STD_LOGIC;
            error : out std_logic);

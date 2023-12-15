@@ -36,7 +36,9 @@ Port ( clk : in STD_LOGIC;
        reset : in STD_LOGIC;
        change: in STD_LOGIC_VECTOR (3 downto 0);
        digsel : out STD_LOGIC_VECTOR (3 downto 0);
-       segment : out STD_LOGIC_VECTOR (6 downto 0));
+       segment : out STD_LOGIC_VECTOR (6 downto 0);
+       option: in STD_LOGIC_VECTOR (2 downto 0);
+       count: in STD_LOGIC_VECTOR (6 downto 0));
 end DISPLAY_CH;
 
 architecture Behavioral of DISPLAY_CH is

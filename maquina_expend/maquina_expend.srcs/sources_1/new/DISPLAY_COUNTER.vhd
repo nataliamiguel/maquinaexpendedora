@@ -37,11 +37,11 @@ Port ( clk : in STD_LOGIC;
        reset : in STD_LOGIC;
        digsel : out STD_LOGIC_VECTOR (3 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0);
-       count_int : out STD_LOGIC_VECTOR (3 downto 0);
-       count_dec : out STD_LOGIC_VECTOR (3 downto 0));      
+       count : out STD_LOGIC_VECTOR (6 downto 0));  
+       
 end DISPLAY_COUNTER;
 architecture Behavioral of DISPLAY_COUNTER is
-       signal count : real;
+       signal count_sig : natural range 0 to 99;
 begin
 
 

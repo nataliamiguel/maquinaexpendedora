@@ -34,10 +34,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity CHANGE is
     Port ( reset : in STD_LOGIC;
            CLK : in STD_LOGIC;
-           count_int : in STD_LOGIC_VECTOR (2 downto 0);
-           count_dec : in STD_LOGIC_VECTOR (2 downto 0);
-           change_dec : out STD_LOGIC_VECTOR (2 downto 0);
-           change_int : out STD_LOGIC_VECTOR (2 downto 0));
+           count : in STD_LOGIC_VECTOR (6 downto 0);
+           change: out STD_LOGIC_VECTOR (6 downto 0));
 end CHANGE;
 
 architecture Behavioral of CHANGE is
