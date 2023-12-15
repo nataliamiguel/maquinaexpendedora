@@ -40,6 +40,7 @@ PORT (
     reassemble: IN std_logic;
     SW: IN std_logic_vector(3 DOWNTO 0);
     digsel: OUT std_logic_vector(7 DOWNTO 0);
+    segments: out std_logic_vector(7 downto 0); 
     led: OUT std_logic 
     );
 end Top;
