@@ -41,8 +41,7 @@ Port ( clk : in STD_LOGIC;
        count_dec : out STD_LOGIC_VECTOR (3 downto 0));      
 end DISPLAY_COUNTER;
 architecture Behavioral of DISPLAY_COUNTER is
-       signal count_int_sig : STD_LOGIC_VECTOR (3 downto 0);
-       signal count_dec_sig : STD_LOGIC_VECTOR (3 downto 0);
+       signal count : real;
 begin
 
 
