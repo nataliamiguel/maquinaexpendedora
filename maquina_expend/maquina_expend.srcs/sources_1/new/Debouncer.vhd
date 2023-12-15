@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Debouncer is
     Port ( CLK : in STD_LOGIC;
            COIN : in STD_LOGIC_VECTOR (3 downto 0);
-           COIN_OUT : in STD_LOGIC);
+           COIN_OUT : in STD_logic_vector(3 downto 0));
 end Debouncer;
 
 architecture Behavioral of Debouncer is
