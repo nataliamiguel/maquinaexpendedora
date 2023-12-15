@@ -36,11 +36,13 @@ Port ( clk : in STD_LOGIC;
        COIN : in std_logic_vector(3 downto 0);
        reset : in STD_LOGIC;
        digsel : out STD_LOGIC_VECTOR (3 downto 0);
-       segment : out STD_LOGIC_VECTOR (6 downto 0));      
+       segment : out STD_LOGIC_VECTOR (6 downto 0);
+       count_int : out STD_LOGIC_VECTOR (3 downto 0);
+       count_dec : out STD_LOGIC_VECTOR (3 downto 0));      
 end DISPLAY_COUNTER;
 architecture Behavioral of DISPLAY_COUNTER is
-       signal count_int : STD_LOGIC_VECTOR (3 downto 0);
-       signal count_dec : STD_LOGIC_VECTOR (3 downto 0);
+       signal count_int_sig : STD_LOGIC_VECTOR (3 downto 0);
+       signal count_dec_sig : STD_LOGIC_VECTOR (3 downto 0);
 begin
 
 
