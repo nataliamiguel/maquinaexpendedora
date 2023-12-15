@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity DISPLAY_COUNTER is
 Port ( clk : in STD_LOGIC;
-       COIN : in std_logic_vector(3 downto 0);
+       coin : in std_logic_vector(3 downto 0);
        reset : in STD_LOGIC;
        digsel : out STD_LOGIC_VECTOR (3 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0);
