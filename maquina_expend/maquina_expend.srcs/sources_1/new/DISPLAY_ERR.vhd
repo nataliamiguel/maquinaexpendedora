@@ -34,14 +34,37 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DISPLAY_ERR is
 Port ( clk : in STD_LOGIC;
        reset : in STD_LOGIC;
-       error: in STD_LOGIC;
-       digsel : out STD_LOGIC_VECTOR (3 downto 0);
+       input_error: in STD_LOGIC;
+       led: OUT std_logic;
+       digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0));
 end DISPLAY_ERR;
 
 architecture Behavioral of DISPLAY_ERR is
+------
+--DECLARACIÓN
+------
+    component ERROR is
+        Port (
+            error : IN std_logic;
+            reset : IN STD_LOGIC;
+            CLK : IN STD_LOGIC;
+            led: OUT std_logic;
+            digsel: OUT std_logic_vector(7 downto 0);
+            segment_error : OUT std_logic_vector(6 DOWNTO 0));
+    end component ERROR;
 
 begin
-
+------
+--INSTANCIACIÓN
+------
+    inst_ERROR: ERROR port map(
+        error => input_error,
+        reset => reset,
+        CLK => clk,
+        led => led,
+        digsel => digsel,
+        segment_error => segment
+     );
 
 end Behavioral;

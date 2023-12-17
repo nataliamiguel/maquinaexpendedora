@@ -35,7 +35,7 @@ entity ERROR is
 PORT (
     error : IN std_logic;
     reset : IN STD_LOGIC;
-    clk : IN STD_LOGIC;
+    CLK : IN STD_LOGIC;
     led: OUT std_logic;
     digsel: OUT std_logic_vector(7 downto 0);
     segment_error : OUT std_logic_vector(6 DOWNTO 0)    
@@ -55,9 +55,9 @@ signal final: natural range 0 to 1 := 0;
 begin
 
 --PROCESS 1 -> señal que cambia cada milisegundo
-    reloj_1ms: process(clk)
+    reloj_1ms: process(CLK)
     begin
-        if (rising_edge(clk)) then
+        if (rising_edge(CLK)) then
             counter_1ms <= counter_1ms + 1;
             if (counter_1ms >= 99999) then
                 counter_1ms <= 0;
@@ -70,9 +70,9 @@ begin
     end process;
 
 --PROCESS 2 -> señal que cambia a los 2 segundos
-    reloj_2s: process(clk)
+    reloj_2s: process(CLK)
     begin
-        if (rising_edge(clk)) then
+        if (rising_edge(CLK)) then
             counter_2s <= counter_2s + 1;
             if (counter_2s >= 199999999) then
                 counter_2s <= 0;
