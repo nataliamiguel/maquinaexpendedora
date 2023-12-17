@@ -130,6 +130,7 @@ begin
     else 
         case (error) is
             when '1'=>
+            --Muestra "ERR" en los 3 últimos digsel
             if (digsel_change = 5) then
                 segment_error <= "1111001"; -- E
             elsif (digsel_change = 6) then
