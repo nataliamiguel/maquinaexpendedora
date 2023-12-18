@@ -32,9 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity CHANGE is
-    Port ( --reset : in STD_LOGIC;  -> lo he quitado porque para qué vas a hacer ...
-                                    -- ...un reset cuando ya está dando el cambio?
-           
+    Port ( reset : in STD_LOGIC;
            clk : in STD_LOGIC;
            count : in STD_LOGIC_VECTOR (6 downto 0)
            --change: out STD_LOGIC_VECTOR (6 downto 0)
