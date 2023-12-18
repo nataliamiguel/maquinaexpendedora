@@ -43,8 +43,27 @@ Port ( clk : in STD_LOGIC;
 end DISPLAY_CH;
 
 architecture Behavioral of DISPLAY_CH is
+-- DECLARACION
+    component CHANGE is
+        Port ( reset : in STD_LOGIC;
+               clk : in STD_LOGIC;
+               option: in STD_LOGIC_vECTOR(2 downto 0); --100 agua; 010 coca; 001 cafe
+               reassemble: in STD_LOGIC;
+               count : in STD_LOGIC_VECTOR (6 downto 0);
+               change: out STD_LOGIC_VECTOR (6 downto 0)
+         );
+    end component;
+
 
 begin
-
+--INSTANCIACIÓN
+    inst_CHANGE: CHANGE port map(
+    reset=> reset,
+    clk =>clk,
+    option=>option,
+    reassemble=> reassemble,
+    count =>count
+    --change=> change
+    );
 
 end Behavioral;
