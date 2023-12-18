@@ -34,15 +34,42 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity CHANGE is
     Port ( reset : in STD_LOGIC;
            clk : in STD_LOGIC;
-           count : in STD_LOGIC_VECTOR (6 downto 0)
-           --change: out STD_LOGIC_VECTOR (6 downto 0)
+           option: in STD_LOGIC_vECTOR(1 downto 0);
+           reassemble: in STD_LOGIC;
+           count : in STD_LOGIC_VECTOR (6 downto 0);
+           change: out STD_LOGIC_VECTOR (6 downto 0)
      );
 end CHANGE;
 
 
 architecture Behavioral of CHANGE is
+    type ESTADO is (S0, S5, S6, S7);
+    signal estado_actual: ESTADO := S0;
+    signal estado_siguiente: ESTADO; 
 
 begin
+    process(clk, reset)
+    begin
+        if (reset = '0') then
+            estado_actual <= S0;
+        elsif (rising_edge(clk)) then
+            estado_actual <= estado_siguiente;
+        end if;
+    end process;
 
-
+    return_change: process (clk, estado_actual)
+    begin
+        if (option = "01") then --AGUA 1€
+            estado_actual<=S5;
+            --ME FALTA ACABAR
+        elsif (option="10") then --CAFE 0.7€
+            estado_actual<=S6;
+            
+        elsif (option="11") then --COCA 1.8€
+            estado_actual<=S7;
+            
+        else
+        
+        end if;
+    end process;
 end Behavioral;
