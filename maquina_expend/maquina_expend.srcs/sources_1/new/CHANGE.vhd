@@ -86,4 +86,6 @@ begin
         estado_actual<=estado_siguiente;
     end process;
     
+    
+    
 end Behavioral;
