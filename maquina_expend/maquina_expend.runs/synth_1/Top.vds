@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Tue Dec 19 19:24:41 2023
-# Process ID: 18060
+# Start of session at: Tue Dec 19 21:05:56 2023
+# Process ID: 22180
 # Current directory: C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1
 # Command line: vivado.exe -log Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top.tcl
 # Log file: C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1/Top.vds
@@ -12,7 +12,7 @@
 # Running On: CarlosPortatil, OS: Windows, CPU Frequency: 2918 MHz, CPU Physical cores: 4, Host memory: 16804 MB
 #-----------------------------------------------------------
 source Top.tcl -notrace
-create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 426.730 ; gain = 161.648
+create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 427.691 ; gain = 165.512
 Command: synth_design -top Top -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
@@ -20,9 +20,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 24648
+INFO: [Synth 8-7075] Helper process launched with PID 20164
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1258.656 ; gain = 410.332
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1257.785 ; gain = 408.766
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Top' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:49]
 INFO: [Synth 8-3491] module 'DISPLAY_COUNTER' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:34' bound to instance 'inst_DISPLAY_COUNTER' of component 'DISPLAY_COUNTER' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:113]
@@ -54,15 +54,15 @@ INFO: [Synth 8-3491] module 'COMPARE' declared at 'C:/Users/fut20/OneDrive/Escri
 INFO: [Synth 8-638] synthesizing module 'COMPARE' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:46]
 WARNING: [Synth 8-614] signal 'reset' is read in the process but is not in the sensitivity list [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'COMPARE' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:46]
-ERROR: [Synth 8-690] width mismatch in assignment; target has 7 bits, source has 8 bits [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:109]
-ERROR: [Synth 8-285] failed synthesizing module 'DISPLAY_OPTION' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'DISPLAY_OPTION' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:46]
+ERROR: [Synth 8-248] direction of slice does not match direction of prefix [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:128]
 ERROR: [Synth 8-285] failed synthesizing module 'Top' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:49]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1349.215 ; gain = 500.891
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 1348.883 ; gain = 499.863
 ---------------------------------------------------------------------------------
 RTL Elaboration failed
 INFO: [Common 17-83] Releasing license: Synthesis
-30 Infos, 6 Warnings, 0 Critical Warnings and 4 Errors encountered.
+31 Infos, 6 Warnings, 0 Critical Warnings and 3 Errors encountered.
 synth_design failed
 ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 19 19:25:09 2023...
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 19 21:06:31 2023...
