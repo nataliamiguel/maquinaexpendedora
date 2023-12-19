@@ -81,7 +81,6 @@ architecture Behavioral of DISPLAY_COUNTER is
                 COIN_OUT : out STD_LOGIC_VECTOR(3 downto 0)
          );
     end component;
-       signal count_disp : natural range 0 to 10;
        signal ok_aux: std_logic := '0';
        signal reset_aux: std_logic;
        signal digit_cycle: natural range 0 to 1 := 0;
@@ -89,7 +88,7 @@ architecture Behavioral of DISPLAY_COUNTER is
        signal number_int: integer:=0;
        signal number_unidades: std_logic_vector(3 downto 0);
        signal number_decenas: std_logic_vector(3 downto 0);
-       signal number_vector: std_logic_vector(6 downto 0):="0000000";
+       signal number_vector: std_logic_vector(6 downto 0);
        signal decoder_in: std_logic_vector(3 downto 0);
        signal clk_aux: std_logic;
        signal sync_aux: std_logic_vector(3 downto 0);
@@ -106,7 +105,7 @@ begin
     clk =>clk_aux,
     Coin=>coin_aux,
     ok=>ok_in,
-    count =>count,
+    count =>number_vector,
     ok_cuenta=>ok_aux
     );
     inst_SYNCHRNZR: synchrnzr  port map(
