@@ -84,7 +84,7 @@ begin
                      end case;
                 end if;
     when S2 =>
-                if price = PRICE_S2 and count = price then
+                if price = PRICE_S2 and count >= price then
                     importe_ok <= '1';
                     error <= '0';
                     estado_siguiente <= S5;
@@ -95,7 +95,7 @@ begin
 
                 end if;
      when S3 =>
-                if price = PRICE_S3 and count = price then
+                if price = PRICE_S3 and count >= price then
                     importe_ok <= '1';
                     error <= '0';
                     estado_siguiente <= S6;
@@ -105,7 +105,7 @@ begin
                     estado_siguiente <= S0;
                 end if;
      when S4 =>
-                if price = PRICE_S4 and count = price then
+                if price = PRICE_S4 and count >= price then
                     importe_ok <= '1';
                     error <= '0';
                     estado_siguiente <= S7;
