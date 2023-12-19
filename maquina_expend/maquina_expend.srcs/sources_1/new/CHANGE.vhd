@@ -57,7 +57,7 @@ begin
         end if;
     end process;
 
-    return_change: process (clk, option)
+    return_change: process (clk, estado_actual)
     begin
         if (option = "100") then --AGUA 1€ 
         --multiplicamos 1€ por 10 para quitar la parte decimal(si la hubiera)
@@ -73,7 +73,6 @@ begin
             estado_siguiente<=S7;
             change<= (count-"0000111");
         end if;
-        estado_actual<=estado_siguiente;
     end process;
     
     reassemble_button: process (reassemble)
