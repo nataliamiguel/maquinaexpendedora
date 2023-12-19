@@ -37,14 +37,19 @@ entity COMPARE is
            price : in STD_LOGIC_VECTOR (6 downto 0);
            count : in STD_LOGIC_VECTOR (6 downto 0);
            reset : in STD_LOGIC;
+           option: in STD_LOGIC_VECTOR (2 downto 0);
            importe_ok : out STD_LOGIC;
            error : out std_logic);
 end COMPARE;
 
 architecture Behavioral of COMPARE is
- type ESTADO is (S0, S2, S3, S4);
+    type ESTADO is (S0, S2, S3, S4, S5,S6,S7);
     signal estado_actual: ESTADO := S0;
     signal estado_siguiente: ESTADO; 
+    
+ constant PRICE_S2 : STD_LOGIC_VECTOR(6 downto 0) := "0001010"; -- 10 en binario
+ constant PRICE_S3 : STD_LOGIC_VECTOR(6 downto 0) := "0010010"; -- 18 en binario
+ constant PRICE_S4 : STD_LOGIC_VECTOR(6 downto 0) := "0000111"; -- 07 en binario    
 
 begin
 
@@ -56,8 +61,67 @@ begin
             estado_actual <= estado_siguiente;
         end if;
     end process;
-   return_compare: process (clk, option)
-    begin
+    
+  process(estado_actual,price,count,option)
+  begin
+   case estado_actual is
+    when S0 =>
+                if reset = '1' then
+                   importe_ok <= '0';
+                   estado_siguiente <= S0;
+                else
+                    case option is
+                     when "100" => 
+                        estado_siguiente <= S2; --agua
+                     when "010" => 
+                        estado_siguiente <= S3; --coca
+                     when "001" => 
+                        estado_siguiente <= S4; --cafe
+                     when others =>
+                        estado_siguiente <= S0;
+                     end case;
+                end if;
+    when S2 =>
+                if price = PRICE_S2 and count = price then
+                    importe_ok <= '1';
+                    error <= '0';
+                    estado_siguiente <= S5;
+                else
+                    importe_ok <= '0';
+                    error <= '1';
+                    estado_siguiente <= S0;
+                end if;
+     when S3 =>
+                if price = PRICE_S3 and count = price then
+                    importe_ok <= '1';
+                    error <= '0';
+                    estado_siguiente <= S6;
+                else
+                    importe_ok <= '0';
+                    error <= '1';
+                    estado_siguiente <= S0;
+                end if;
+            when S4 =>
+                if price = PRICE_S4 and count = price then
+                    importe_ok <= '1';
+                    error <= '0';
+                    estado_siguiente <= S7;
+                else
+                    importe_ok <= '0';
+                    error <= '1';
+                    estado_siguiente <= S0; 
+                end if;
+            --when S5|S6|S7 =>
+                --importe_ok <= '0';
+                --error <= '0';
+                --estado_siguiente <= S0;
+            when others =>
+                importe_ok <= '0';
+                error <= '0';
+                estado_siguiente <= S0;
+        end case;
+       end process;
+
     
     
 end Behavioral;
