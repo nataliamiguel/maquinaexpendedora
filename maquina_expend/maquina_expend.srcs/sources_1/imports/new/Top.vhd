@@ -41,16 +41,12 @@ PORT (
     SW: IN std_logic_vector(3 DOWNTO 0);
     digsel: OUT std_logic_vector(7 DOWNTO 0);
     segments: out std_logic_vector(7 downto 0); 
+    DP: out std_logic;
     led: OUT std_logic 
     );
 end Top;
 
 architecture Behavioral of Top is
-component EDGEDCTR is
- Port ( CLK : in STD_LOGIC;
- SYNC_IN : in std_logic_vector;
- EDGE : out std_logic_vector
- );
-end component;
+
 begin
 end Behavioral;

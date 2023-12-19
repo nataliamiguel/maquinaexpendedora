@@ -38,7 +38,7 @@ Port ( clk : in STD_LOGIC;
        option: in STD_LOGIC_VECTOR (2 downto 0);
        reassemble: in STD_LOGIC;
        count: in STD_LOGIC_VECTOR (6 downto 0);
-       digsel : out STD_LOGIC_VECTOR (3 downto 0);
+       digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0);
        DP : out std_logic);
 end DISPLAY_CH;
