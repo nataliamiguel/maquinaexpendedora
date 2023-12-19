@@ -139,16 +139,16 @@ case (digit_ctrl) is
       when 4 =>
         digsel <= "11111101";
          case(sw) is 
-             when "100" => segment <= "11000001"; -- Imprime una U
-             when "010" => segment <= "01111110"; -- Imprime una C
-             when "001" => segment <= "01111001"; -- Imprime una F 
+             when "100" => segment <= "1000001"; -- Imprime una U
+             when "010" => segment <= "1001110"; -- Imprime una C
+             when "001" => segment <= "0111000"; -- Imprime una F 
              when others => segment <= "1111111";        
          end case;
       when 5 =>
         digsel <= "11111110";         case(sw) is 
-             when "100" => segment <= "10000000"; -- Imprime una A
-             when "010" => segment <= "10000000"; -- Imprime una A
-             when "001" => segment <= "01111001"; -- Imprime una E 
+             when "100" => segment <= "0001000"; -- Imprime una A
+             when "010" => segment <= "0001000"; -- Imprime una A
+             when "001" => segment <= "0110000"; -- Imprime una E 
              when others => segment <= "1111111";         
          end case;
  end case; 
