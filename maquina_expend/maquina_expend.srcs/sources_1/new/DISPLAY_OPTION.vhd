@@ -48,13 +48,62 @@ architecture Behavioral of DISPLAY_OPTION is
            price : in STD_LOGIC_VECTOR (6 downto 0);
            count : in STD_LOGIC_VECTOR (6 downto 0);
            reset : in STD_LOGIC;
+           option: in STD_LOGIC_VECTOR (2 downto 0);
            importe_ok : out STD_LOGIC;
            error : out std_logic);
  end component;              
-               
-               
+ 
+ component decoder is
+   Port ( 
+               code : IN std_logic_vector(3 DOWNTO 0);
+               segment : OUT std_logic_vector(6 DOWNTO 0)
+         );
+  end component;
+            
+ component SYNCHRNZR is
+        Port ( 
+                CLK : in STD_LOGIC;
+                ASYNC_IN : in STD_LOGIC_VECTOR (3 downto 0);
+                SYNC_OUT : out STD_LOGIC_vector(3 downto 0);
+                RESET: in std_logic
+         );
+    end component;
+    component edgectr is
+        Port ( 
+                RESET : in std_logic;
+                CLK : in STD_LOGIC;
+                SYNC_IN : in STD_LOGIC_vector(3 downto 0);
+                EDGE : out STD_LOGIC_vector(3 downto 0)
+         );
+    end component;    
+   
+  signal clk_aux: std_logic;   
+  signal reset_aux: std_logic;
+  signal price_aux : std_logic_vector(6 downto 0);
+  signal count_aux : std_logic_vector(6 downto 0);
+  signal option_aux : std_logic_vector(2 downto 0);
+  signal error_aux : std_logic;
+  signal importe_ok_aux : std_logic;
+  signal sync_aux: std_logic_vector(3 downto 0);
+  signal async_aux: std_logic_vector(3 downto 0); 
+
 begin
---INSTANTACION
+ inst_COMPARE: COMPARE  port map(
+    reset=> reset_aux,
+    clk =>clk_aux,
+    price=>price_aux,
+    count=>count_aux,
+    option=>option_aux,
+    error =>error_aux,
+    importe_ok=>importe_ok_aux
+    );
+ inst_SYNCHRNZR: synchrnzr  port map(
+        reset=>reset_aux,
+        Clk=>clk_aux,
+        async_in=>async_aux,
+        sync_out=>sync_aux
+    );   
+
 
 
 end Behavioral;
