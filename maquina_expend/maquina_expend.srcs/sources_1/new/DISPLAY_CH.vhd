@@ -75,7 +75,7 @@ begin
 --INSTANCIACIÓN
     inst_CHANGE: CHANGE port map(
     reset=> reset,
-    clk =>clk,
+    clk =>clk_aux,
     option=>option,
     reassemble=> reassemble,
     count =>count,
