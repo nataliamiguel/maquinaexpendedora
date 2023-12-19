@@ -38,7 +38,7 @@ PORT (
     reset: in std_logic;
     COIN: IN std_logic_vector(3 DOWNTO 0);
     reassemble: IN std_logic;
-    SW: IN std_logic_vector(3 DOWNTO 0);
+    SW_in: IN std_logic_vector(3 DOWNTO 0);
     digsel: OUT std_logic_vector(7 DOWNTO 0);
     segments: out std_logic_vector(7 downto 0); 
     DP: out std_logic;
@@ -60,6 +60,7 @@ architecture Behavioral of Top is
     signal DP_aux: std_logic;
     signal error_aux:std_logic;
     signal led_aux:std_logic;
+    signal sw_aux: std_logic_vector(2 downto 0);
     
     
     
@@ -114,7 +115,7 @@ inst_DISPLAY_COUNTER: DISPLAY_COUNTER Port map (
        clk =>clk_aux,
        coin_in=> coin,
        reset=>reset_aux,
-       ok_in => sw(0),
+       ok_in => sw_in(0),
        digsel => digsel_aux,
        segment_out => segment_aux,
        count => count_aux,
@@ -125,7 +126,7 @@ inst_DISPLAY_COUNTER: DISPLAY_COUNTER Port map (
        clk =>clk_aux,
         reset=>reset_aux,
         count=>count_aux,
-        sw=> sw(1 to 3),
+        sw=> sw_aux,
         digsel =>digsel_aux,
         segment=> segment_aux,
         error=> error_aux
@@ -134,7 +135,7 @@ inst_DISPLAY_COUNTER: DISPLAY_COUNTER Port map (
 inst_DISPLAY_CH: DISPLAY_CH port map(
        clk =>clk_aux,
        reset =>reset_aux,
-       option=>sw (1 to 3),
+       option=>sw_aux,
        reassemble=> reassemble,
        count=>count_aux,
        digsel =>digsel_aux,
@@ -176,9 +177,13 @@ inst_DISPLAY_ERR: DISPLAY_ERR port map(
         when CHANGE_STATE=>
             if (falling_edge(ok_option)) then
             estado_siguiente<=ERROR_STATE;  
+           
+            end if;    
+            when ERROR_STATE=>
+            ok_option<='1';
             estado_siguiente<=COUNTER_STATE; 
-            end if;            
         end case;   
     end process;
     error_aux<=not ok_option;
+    sw_aux<=sw_in(3 downto 1);
 end Behavioral;

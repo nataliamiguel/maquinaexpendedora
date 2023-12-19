@@ -124,9 +124,9 @@ end process;
 --PROCESS 5-> Process para mostrar mensaje de error
 error_display: process(error, reset, digsel_change, final)
 begin
-    segment_error  <= "11111111";
+    segment_error  <= "1111111";
     if (reset='0') then
-        segment_error <= "11111111";
+        segment_error <= "1111111";
     else 
         case (error) is
             when '1'=>
@@ -138,6 +138,8 @@ begin
             elsif (digsel_change = 7) then
                 segment_error <= "1110000"; -- R            
             end if;
+            when '0' =>
+            segment_error<= "1111111";
         end case;
     end if;
 end process;
