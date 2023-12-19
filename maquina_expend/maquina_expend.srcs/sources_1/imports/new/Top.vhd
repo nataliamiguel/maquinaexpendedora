@@ -68,7 +68,7 @@ architecture Behavioral of Top is
        coin_in : in std_logic_vector(3 downto 0);
        reset : in STD_LOGIC;
        ok_in : in std_logic;
-       digsel : out STD_LOGIC_VECTOR (3 downto 0);
+       digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment_out : out STD_LOGIC_VECTOR (6 downto 0);
        count : out STD_LOGIC_VECTOR (6 downto 0);
        ok_out : out std_logic;

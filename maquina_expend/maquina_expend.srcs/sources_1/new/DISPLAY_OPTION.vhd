@@ -36,7 +36,7 @@ Port (  clk : in STD_LOGIC;
         reset : in STD_LOGIC;
         count: in STD_LOGIC_VECTOR (6 downto 0);
         sw: in STD_LOGIC_VECTOR (2 downto 0);
-        digsel : out STD_LOGIC_VECTOR (3 downto 0);
+        digsel : out STD_LOGIC_VECTOR ( 7 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
         DP : out std_logic;
         error : out std_logic);
@@ -70,11 +70,11 @@ architecture Behavioral of DISPLAY_OPTION is
   signal error_aux : std_logic;
   signal importe_ok_aux : std_logic;
   signal counter_1ms: natural range 0 to 99999 := 0;
-  signal digit_ctrl: natural range 0 to 7 := 0;
+  signal digit_ctrl: natural range 0 to 5 := 0;
   signal final_ctrl: natural range 0 to 1 := 0;
   signal sw_state: std_logic_vector(2 downto 0) := "000";
   signal digsel_value: std_logic_vector(3 downto 0);
-      
+        
 begin
  inst_COMPARE: COMPARE  port map(
     reset=> reset_aux,
@@ -92,7 +92,7 @@ reloj_1ms: process(clk)
          if (counter_1ms >= 99999) then
              counter_1ms <= 0;
              digit_ctrl <= digit_ctrl + 1;
-             if (digit_ctrl > 7)then
+             if (digit_ctrl > 5)then
                  digit_ctrl <= 0;
              end if;
           end if;
@@ -105,46 +105,51 @@ case (digit_ctrl) is
       when 0 =>
         digsel <= "10111111";
         DP <= '1';
-          case(sw) is 
-             when "100" => segment <= "00000110"; -- Imprime un 1
-             when "010" => segment <= "00000110"; -- Imprime un 1
-             when "001" => segment <= "00111111"; -- Imprime un 0
+          case (sw) is 
+             when "100" => segment <= "1001111"; -- Imprime un 1
+             when "010" => segment <= "1001111"; -- Imprime un 1
+             when "001" => segment <= "0000001"; -- Imprime un 0
+             when others => segment <= "1111111";
               --DP <= '1';
           end case;                 
       when 1 =>
         digsel <= "11011111";
           case(sw) is 
-             when "100" => segment <= "00111111"; -- Imprime un 0 
-             when "010" => segment <= "11000000"; -- Imprime un 8
-             when "001" => segment <= "01111001"; -- Imprime un 7
+             when "100" => segment <= "0000001"; -- Imprime un 0 
+             when "010" => segment <= "0000000"; -- Imprime un 8
+             when "001" => segment <= "0001111"; -- Imprime un 7
+             when others => segment <= "1111111";
           end case;    
       when 2 =>
         digsel <= "11110111";
          case(sw) is 
-             when "100" => segment <= "10000000"; -- Imprime una A 
-             when "010" => segment <= "00010011"; -- Imprime una C
-             when "001" => segment <= "00010011"; -- Imprime una C
-          end case;    
+             when "100" => segment <= "0001000"; -- Imprime una A 
+             when "010" => segment <= "1001110"; -- Imprime una C
+             when "001" => segment <= "1001110"; -- Imprime una C
+             when others => segment <= "1111111";
+            end case;    
       when 3 =>
         digsel <= "11111011";
          case(sw) is 
-             when "100" => segment <= "00001111"; -- Imprime una G
-             when "010" => segment <= "00111111"; -- Imprime una O
-             when "001" => segment <= "10000000"; -- Imprime una A 
-         end case;       
+             when "100" => segment <= "0100000"; -- Imprime una G
+             when "010" => segment <= "0000001"; -- Imprime una O
+             when "001" => segment <= "0001000"; -- Imprime una A 
+             when others => segment <= "1111111";
+           end case;       
       when 4 =>
         digsel <= "11111101";
          case(sw) is 
              when "100" => segment <= "11000001"; -- Imprime una U
              when "010" => segment <= "01111110"; -- Imprime una C
              when "001" => segment <= "01111001"; -- Imprime una F 
+             when others => segment <= "1111111";        
          end case;
       when 5 =>
-        digsel <= "11111110";
-         case(sw) is 
+        digsel <= "11111110";         case(sw) is 
              when "100" => segment <= "10000000"; -- Imprime una A
              when "010" => segment <= "10000000"; -- Imprime una A
              when "001" => segment <= "01111001"; -- Imprime una E 
+             when others => segment <= "1111111";         
          end case;
  end case; 
       

@@ -1,0 +1,68 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Tue Dec 19 19:24:41 2023
+# Process ID: 18060
+# Current directory: C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1
+# Command line: vivado.exe -log Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top.tcl
+# Log file: C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1/Top.vds
+# Journal file: C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1\vivado.jou
+# Running On: CarlosPortatil, OS: Windows, CPU Frequency: 2918 MHz, CPU Physical cores: 4, Host memory: 16804 MB
+#-----------------------------------------------------------
+source Top.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 426.730 ; gain = 161.648
+Command: synth_design -top Top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 24648
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1258.656 ; gain = 410.332
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Top' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:49]
+INFO: [Synth 8-3491] module 'DISPLAY_COUNTER' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:34' bound to instance 'inst_DISPLAY_COUNTER' of component 'DISPLAY_COUNTER' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:113]
+INFO: [Synth 8-638] synthesizing module 'DISPLAY_COUNTER' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:45]
+INFO: [Synth 8-3491] module 'Debouncer' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/Debouncer.vhd:4' bound to instance 'inst_Debouncer' of component 'Debouncer' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'Debouncer' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/Debouncer.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'Debouncer' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/Debouncer.vhd:15]
+INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:35' bound to instance 'inst_COUNTER' of component 'COUNTER' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'COUNTER' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:44]
+WARNING: [Synth 8-614] signal 'COIN' is read in the process but is not in the sensitivity list [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:61]
+WARNING: [Synth 8-614] signal 'actual_count' is read in the process but is not in the sensitivity list [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:61]
+WARNING: [Synth 8-614] signal 'OK' is read in the process but is not in the sensitivity list [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'COUNTER' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:44]
+INFO: [Synth 8-3491] module 'SYNCHRNZR' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/SYNCHRNZR.vhd:34' bound to instance 'inst_SYNCHRNZR' of component 'SYNCHRNZR' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:111]
+INFO: [Synth 8-638] synthesizing module 'SYNCHRNZR' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/SYNCHRNZR.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'SYNCHRNZR' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/SYNCHRNZR.vhd:41]
+INFO: [Synth 8-3491] module 'DECODER' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:34' bound to instance 'inst_DECODER' of component 'decoder' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:117]
+INFO: [Synth 8-638] synthesizing module 'DECODER' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'DECODER' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:41]
+INFO: [Synth 8-3491] module 'EDGECTR' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/EDGECTR.vhd:34' bound to instance 'inst_Edgectr' of component 'edgectr' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:121]
+INFO: [Synth 8-638] synthesizing module 'EDGECTR' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/EDGECTR.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'EDGECTR' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/EDGECTR.vhd:42]
+WARNING: [Synth 8-614] signal 'number_decenas' is read in the process but is not in the sensitivity list [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:140]
+WARNING: [Synth 8-614] signal 'number_unidades' is read in the process but is not in the sensitivity list [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:140]
+INFO: [Synth 8-256] done synthesizing module 'DISPLAY_COUNTER' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:45]
+INFO: [Synth 8-3491] module 'DISPLAY_OPTION' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:34' bound to instance 'inst_DISPLAY_OPTION' of component 'DISPLAY_OPTION' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:124]
+INFO: [Synth 8-638] synthesizing module 'DISPLAY_OPTION' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:46]
+INFO: [Synth 8-3491] module 'COMPARE' declared at 'C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:35' bound to instance 'inst_COMPARE' of component 'COMPARE' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:79]
+INFO: [Synth 8-638] synthesizing module 'COMPARE' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:46]
+WARNING: [Synth 8-614] signal 'reset' is read in the process but is not in the sensitivity list [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'COMPARE' (0#1) [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:46]
+ERROR: [Synth 8-690] width mismatch in assignment; target has 7 bits, source has 8 bits [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:109]
+ERROR: [Synth 8-285] failed synthesizing module 'DISPLAY_OPTION' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:46]
+ERROR: [Synth 8-285] failed synthesizing module 'Top' [C:/Users/fut20/OneDrive/Escritorio/Cuarto UPM/SED/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:49]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1349.215 ; gain = 500.891
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 6 Warnings, 0 Critical Warnings and 4 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 19 19:25:09 2023...
