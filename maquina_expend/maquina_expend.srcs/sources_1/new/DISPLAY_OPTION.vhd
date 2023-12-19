@@ -86,6 +86,7 @@ architecture Behavioral of DISPLAY_OPTION is
   signal importe_ok_aux : std_logic;
   signal sync_aux: std_logic_vector(3 downto 0);
   signal async_aux: std_logic_vector(3 downto 0); 
+  signal coin_aux : std_logic_vector(3 downto 0);
 
 begin
  inst_COMPARE: COMPARE  port map(
@@ -103,7 +104,12 @@ begin
         async_in=>async_aux,
         sync_out=>sync_aux
     );   
-
+  inst_Edgectr: edgectr  port map(
+        reset=>reset_aux,
+        sync_in=>sync_aux,
+        clk=>clk_aux,
+        edge=>coin_aux
+    );
 
 
 end Behavioral;
