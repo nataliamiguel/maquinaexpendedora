@@ -38,6 +38,7 @@ Port (  clk : in STD_LOGIC;
         sw: in STD_LOGIC_VECTOR (2 downto 0);
         digsel : out STD_LOGIC_VECTOR (3 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
+        DP : out std_logic;
         error : out std_logic);
         
 end DISPLAY_OPTION;
@@ -103,10 +104,12 @@ begin
 case (digit_ctrl) is
       when 0 =>
         digsel <= "10111111";
+        DP <= '1';
           case(sw) is 
              when "100" => segment <= "00000110"; -- Imprime un 1
              when "010" => segment <= "00000110"; -- Imprime un 1
              when "001" => segment <= "00111111"; -- Imprime un 0
+              --DP <= '1';
           end case;                 
       when 1 =>
         digsel <= "11011111";
