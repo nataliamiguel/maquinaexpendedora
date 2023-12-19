@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DISPLAY_OPTION is
 Port (  clk : in STD_LOGIC;
         reset : in STD_LOGIC;
-        sw : in STD_LOGIC_VECTOR (2 downto 0);
+        count: in STD_LOGIC_VECTOR (6 downto 0);
         digsel : out STD_LOGIC_VECTOR (3 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
         option: out STD_LOGIC_VECTOR (2 downto 0);
@@ -42,8 +42,19 @@ Port (  clk : in STD_LOGIC;
 end DISPLAY_OPTION;
 
 architecture Behavioral of DISPLAY_OPTION is
-
+-- DECLARACION
+ component COMPARE is
+   Port ( clk : in STD_LOGIC;
+           price : in STD_LOGIC_VECTOR (6 downto 0);
+           count : in STD_LOGIC_VECTOR (6 downto 0);
+           reset : in STD_LOGIC;
+           importe_ok : out STD_LOGIC;
+           error : out std_logic);
+ end component;              
+               
+               
 begin
+--INSTANTACION
 
 
 end Behavioral;

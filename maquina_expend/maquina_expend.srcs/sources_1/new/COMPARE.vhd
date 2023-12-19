@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity COMPARE is
-    Port ( CLK : in STD_LOGIC;
+    Port ( clk : in STD_LOGIC;
            price : in STD_LOGIC_VECTOR (6 downto 0);
            count : in STD_LOGIC_VECTOR (6 downto 0);
            reset : in STD_LOGIC;
@@ -41,8 +42,22 @@ entity COMPARE is
 end COMPARE;
 
 architecture Behavioral of COMPARE is
+ type ESTADO is (S0, S2, S3, S4);
+    signal estado_actual: ESTADO := S0;
+    signal estado_siguiente: ESTADO; 
 
 begin
 
-
+ process(clk, reset)
+    begin
+        if (reset = '0') then
+            estado_actual <= S0;
+        elsif (rising_edge(clk)) then
+            estado_actual <= estado_siguiente;
+        end if;
+    end process;
+   return_compare: process (clk, option)
+    begin
+    
+    
 end Behavioral;
