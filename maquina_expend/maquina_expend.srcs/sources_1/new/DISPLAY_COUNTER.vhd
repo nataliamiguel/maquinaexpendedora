@@ -152,6 +152,7 @@ begin
       clk_aux <= clk;
       ok_out<=ok_aux;
       reset_aux<=reset;
+      count <= number_vector;
       number_int <= to_integer(unsigned(number_vector));
       number_unidades <= std_logic_vector(to_unsigned(number_int mod 10, 4));
       number_decenas <= std_logic_vector(to_unsigned(number_int / 10, 4));
