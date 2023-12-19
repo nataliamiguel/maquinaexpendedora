@@ -40,7 +40,7 @@ PORT (
     reassemble: IN std_logic;
     SW_in: IN std_logic_vector(3 DOWNTO 0);
     digsel: OUT std_logic_vector(7 DOWNTO 0);
-    segments: out std_logic_vector(7 downto 0); 
+    segments: out std_logic_vector(6 downto 0); 
     DP: out std_logic;
     led: OUT std_logic 
     );
@@ -186,4 +186,10 @@ inst_DISPLAY_ERR: DISPLAY_ERR port map(
     end process;
     error_aux<=not ok_option;
     sw_aux<=sw_in(3 downto 1);
+    clk_aux<=clk;
+    reset_aux<=reset;
+    digsel<=digsel_aux;
+    segments<=segment_aux; 
+    DP<=DP_aux;
+    led<=led_aux;
 end Behavioral;

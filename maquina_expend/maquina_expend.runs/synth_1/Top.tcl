@@ -116,6 +116,8 @@ read_xdc C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/
 set_property used_in_implementation false [get_files C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/utils_1/imports/synth_1/Top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
