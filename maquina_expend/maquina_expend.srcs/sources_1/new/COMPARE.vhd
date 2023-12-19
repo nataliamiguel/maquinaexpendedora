@@ -39,9 +39,7 @@ entity COMPARE is
            reset : in STD_LOGIC;
            option: in STD_LOGIC_VECTOR (2 downto 0);
            importe_ok : out STD_LOGIC;
-           error : out STD_LOGIC;
-           digsel: out STD_LOGIC_VECTOR (3 downto 0);
-           segment: out STD_LOGIC_VECTOR (6 downto 0)
+           error : out STD_LOGIC
          ); 
 end COMPARE;
 
@@ -54,9 +52,6 @@ architecture Behavioral of COMPARE is
  constant PRICE_S3 : STD_LOGIC_VECTOR(6 downto 0) := "0010010"; -- 18 en binario
  constant PRICE_S4 : STD_LOGIC_VECTOR(6 downto 0) := "0000111"; -- 07 en binario    
 
- signal display_text : STD_LOGIC_VECTOR(7 downto 0);
- signal display_enable : STD_LOGIC := '0';
- signal digsel_count : INTEGER := 0;
 
 begin
 
@@ -76,7 +71,6 @@ begin
                 if reset = '1' then
                    importe_ok <= '0';
                    estado_siguiente <= S0;
-                   display_enable <= '0';
                 else
                     case option is
                      when "100" => 
@@ -94,13 +88,10 @@ begin
                     importe_ok <= '1';
                     error <= '0';
                     estado_siguiente <= S5;
-                    --display_text <= "AGUA   ";
-                    display_enable <= '1';
                 else
                     importe_ok <= '0';
                     error <= '1';
                     estado_siguiente <= S0;
-                    display_enable <= '0';
 
                 end if;
      when S3 =>
@@ -108,37 +99,26 @@ begin
                     importe_ok <= '1';
                     error <= '0';
                     estado_siguiente <= S6;
-                    --display_text <= "COCA   ";
-                    display_enable <= '1';
                 else
                     importe_ok <= '0';
                     error <= '1';
                     estado_siguiente <= S0;
-                    display_enable <= '0';
                 end if;
      when S4 =>
                 if price = PRICE_S4 and count = price then
                     importe_ok <= '1';
                     error <= '0';
                     estado_siguiente <= S7;
-                   -- display_text <= "CAFE   ";
-                    display_enable <= '1';
                 else
                     importe_ok <= '0';
                     error <= '1';
                     estado_siguiente <= S0; 
-                    display_enable <='0';
                 end if;
-            --when S5|S6|S7 =>
-                --importe_ok <= '0';
-                --error <= '0';
-                --estado_siguiente <= S0;
-                --display_enable <='0';
+        
             when others =>
                 importe_ok <= '0';
                 error <= '0';
                 estado_siguiente <= S0;
-                display_enable <='0';
         end case;
        end process;
 

@@ -35,10 +35,11 @@ entity DISPLAY_OPTION is
 Port (  clk : in STD_LOGIC;
         reset : in STD_LOGIC;
         count: in STD_LOGIC_VECTOR (6 downto 0);
+        sw: in STD_LOGIC_VECTOR (2 downto 0);
         digsel : out STD_LOGIC_VECTOR (3 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
-        option: out STD_LOGIC_VECTOR (2 downto 0);
         error : out std_logic);
+        
 end DISPLAY_OPTION;
 
 architecture Behavioral of DISPLAY_OPTION is
@@ -58,24 +59,7 @@ architecture Behavioral of DISPLAY_OPTION is
                code : IN std_logic_vector(3 DOWNTO 0);
                segment : OUT std_logic_vector(6 DOWNTO 0)
          );
-  end component;
-            
- component SYNCHRNZR is
-        Port ( 
-                CLK : in STD_LOGIC;
-                ASYNC_IN : in STD_LOGIC_VECTOR (3 downto 0);
-                SYNC_OUT : out STD_LOGIC_vector(3 downto 0);
-                RESET: in std_logic
-         );
-    end component;
-    component edgectr is
-        Port ( 
-                RESET : in std_logic;
-                CLK : in STD_LOGIC;
-                SYNC_IN : in STD_LOGIC_vector(3 downto 0);
-                EDGE : out STD_LOGIC_vector(3 downto 0)
-         );
-    end component;    
+  end component; 
    
   signal clk_aux: std_logic;   
   signal reset_aux: std_logic;
@@ -84,10 +68,11 @@ architecture Behavioral of DISPLAY_OPTION is
   signal option_aux : std_logic_vector(2 downto 0);
   signal error_aux : std_logic;
   signal importe_ok_aux : std_logic;
-  signal sync_aux: std_logic_vector(3 downto 0);
-  signal async_aux: std_logic_vector(3 downto 0); 
-  signal coin_aux : std_logic_vector(3 downto 0);
-
+  signal counter_1ms: natural range 0 to 99999 := 0;
+  signal digit_ctrl: natural range 0 to 7 := 0;
+  signal final_ctrl: natural range 0 to 1 := 0;
+  signal sw_state: std_logic_vector(2 downto 0) := "000";
+      
 begin
  inst_COMPARE: COMPARE  port map(
     reset=> reset_aux,
@@ -98,18 +83,42 @@ begin
     error =>error_aux,
     importe_ok=>importe_ok_aux
     );
- inst_SYNCHRNZR: synchrnzr  port map(
-        reset=>reset_aux,
-        Clk=>clk_aux,
-        async_in=>async_aux,
-        sync_out=>sync_aux
-    );   
-  inst_Edgectr: edgectr  port map(
-        reset=>reset_aux,
-        sync_in=>sync_aux,
-        clk=>clk_aux,
-        edge=>coin_aux
-    );
+reloj_1ms: process(clk)
+ begin
+     if (rising_edge(clk)) then
+        counter_1ms <= counter_1ms + 1;
+         if (counter_1ms >= 99999) then
+             counter_1ms <= 0;
+             digit_ctrl <= digit_ctrl + 1;
+             if (digit_ctrl > 7)then
+                 digit_ctrl <= 0;
+             end if;
+          end if;
+     end if;
+ end process;
 
+digit_control: process(digit_ctrl,sw)
+begin     
+  case (digit_ctrl) is 
+    when 0 =>
+       digsel <= "01111111";
+    when 1 =>
+        digsel <= "10111111";
+    when 2 =>
+        digsel <= "11011111";
+    when 3 =>
+        digsel <= "11101111";
+    when 4 =>
+        digsel <= "11110111";
+    when 5 =>
+        digsel <= "11111011";
+    when 6 =>
+        digsel <= "11111101";
+    when 7 =>
+        digsel <= "11111110";
+ end case;
+end process;
 
+option_aux <= sw;
+        
 end Behavioral;
