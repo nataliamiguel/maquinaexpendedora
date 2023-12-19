@@ -88,7 +88,7 @@ architecture Behavioral of DISPLAY_COUNTER is
        signal counter_1ms: natural range 0 to 99999 := 0;
        signal number_int: integer:=0;
        signal number_unidades: std_logic_vector(3 downto 0);
-       signal number_decimales: std_logic_vector(3 downto 0);
+       signal number_decenas: std_logic_vector(3 downto 0);
        signal number_vector: std_logic_vector(6 downto 0):="0000000";
        signal decoder_in: std_logic_vector(3 downto 0);
        signal clk_aux: std_logic;
@@ -143,7 +143,7 @@ begin
         case (digit_cycle) is
             when 0 =>
                 digsel <= "10111111";
-                decoder_in<= number_decimales;
+                decoder_in<= number_decenas;
                 DP <= '1';
             when 1 =>
                 digsel <= "11011111";
@@ -155,6 +155,6 @@ begin
       reset_aux<=reset;
       number_int <= to_integer(unsigned(number_vector));
       number_unidades <= std_logic_vector(to_unsigned(number_int mod 10, 4));
-      number_decimales <= std_logic_vector(to_unsigned(number_int / 10, 4));
+      number_decenas <= std_logic_vector(to_unsigned(number_int / 10, 4));
       
 end Behavioral;
