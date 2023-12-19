@@ -32,14 +32,44 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity EDGECTR is
-    Port ( CLK : in STD_LOGIC;
-           SYNC_IN : in STD_LOGIC_vector(3 downto 0);
-           EDGE : out STD_LOGIC_vector(3 downto 0));
+    Port(
+         clk: in std_logic;
+         reset:in std_logic;
+         sync_in: in std_logic_vector(3 downto 0);
+         edge: out std_logic_vector(3 downto 0)
+ );
 end EDGECTR;
-
 architecture Behavioral of EDGECTR is
-
+         type matrix_sreg is array(3 downto 0) of std_logic_vector(2 downto 0);
+         signal sreg : matrix_sreg;
+         signal edge_aux: std_logic_vector(3 downto 0):= "0000";
 begin
-
-
+-- DETECCION DE FLANCO
+        process (reset,clk)
+        begin
+            if (reset = '0') then
+                for i in 0 to 3 loop
+                    sreg(i) <= "000";
+                end loop;
+            elsif rising_edge(clk) then
+                 for i in 0 to 3 loop
+                     sreg(i) <= sreg(i)(1 downto 0) & sync_in(i);
+                 end loop;
+            end if;
+        end process;
+        process (reset, sreg)
+        begin
+            if(reset = '0') then
+                edge_aux <= "0000";
+            else
+                for i in 0 to 3 loop
+                    if(sreg(i) = "100") then
+                        edge_aux(i) <= '1';
+                    else
+                        edge_aux(i) <= '0';
+                    end if;
+                end loop;
+            end if;
+        end process;
+ edge <= edge_aux;
 end Behavioral;

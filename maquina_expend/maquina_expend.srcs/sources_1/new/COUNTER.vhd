@@ -21,7 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
@@ -41,7 +42,7 @@ entity COUNTER is
 end COUNTER;
 
 architecture Behavioral of COUNTER is
-    type ESTADO is (S0, S1, S2);
+    type ESTADO is (S0, S1);
     signal estado_actual: ESTADO := S0;
     signal estado_siguiente: ESTADO; 
     signal  actual_count : integer:=0;
@@ -50,6 +51,7 @@ architecture Behavioral of COUNTER is
     begin
         if (reset = '0') then
             estado_actual <= S0;
+            actual_count <= 0;
         elsif (rising_edge(clk)) then
             estado_actual <= estado_siguiente;
         end if;
@@ -70,9 +72,11 @@ architecture Behavioral of COUNTER is
         else
         end if;
         if(ok = '1') then
-        ok_cuenta <='1';
-        estado_actual <= S2;
+        estado_actual <= S1;
+        end if;
+         if(estado_actual = s1) then
+        ok_cuenta<= '0';
         end if;
     end process;
-
+    count <= std_logic_vector(to_unsigned(actual_count, count'length));
 end Behavioral;
