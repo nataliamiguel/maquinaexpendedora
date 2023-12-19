@@ -62,7 +62,6 @@ architecture Behavioral of COUNTER is
     begin
         if (Coin = "0001") then  --10 cent
             actual_count<=actual_count+1;
-            --ME FALTA ACABAR
         elsif (Coin = "0010") then  --20 cent
             actual_count<=actual_count+2;
         elsif (Coin = "0100") then  --50 cent

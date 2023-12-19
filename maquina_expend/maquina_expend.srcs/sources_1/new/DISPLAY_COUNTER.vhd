@@ -21,12 +21,11 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use IEEE.NUMERIC_STD.ALL;
+--use IEEE.STD_LOGIC_ARITH.ALL;
+--use IEEE.STD_LOGIC_UNSIGNED.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
+use IEEE.NUMERIC_STD.ALL;
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
@@ -38,7 +37,7 @@ Port ( clk : in STD_LOGIC;
        reset : in STD_LOGIC;
        ok_in : in std_logic;
        digsel : out STD_LOGIC_VECTOR (3 downto 0);
-       segment : out STD_LOGIC_VECTOR (6 downto 0);
+       segment_out : out STD_LOGIC_VECTOR (6 downto 0);
        count : out STD_LOGIC_VECTOR (6 downto 0); 
        ok_out : out std_logic;
        DP : out std_logic);     
@@ -87,8 +86,11 @@ architecture Behavioral of DISPLAY_COUNTER is
        signal reset_aux: std_logic;
        signal digit_cycle: natural range 0 to 1 := 0;
        signal counter_1ms: natural range 0 to 99999 := 0;
-       signal number_natural: natural range 0 to 9:=0;
-       signal number_vector: std_logic_vector(6 downto 0);
+       signal number_int: integer:=0;
+       signal number_unidades: std_logic_vector(3 downto 0);
+       signal number_decimales: std_logic_vector(3 downto 0);
+       signal number_vector: std_logic_vector(6 downto 0):="0000000";
+       signal decoder_in: std_logic_vector(3 downto 0);
        signal clk_aux: std_logic;
        signal sync_aux: std_logic_vector(3 downto 0);
        signal async_aux: std_logic_vector(3 downto 0); 
@@ -114,8 +116,8 @@ begin
         sync_out=>sync_aux
     );
     inst_DECODER: Decoder  port map(
-        code=>number_vector,
-        segment=>segment
+        code=>decoder_in,
+        segment=>segment_out
     );
     inst_Edgectr: edgectr  port map(
         reset=>reset_aux,
@@ -141,12 +143,18 @@ begin
         case (digit_cycle) is
             when 0 =>
                 digsel <= "10111111";
+                decoder_in<= number_decimales;
                 DP <= '1';
             when 1 =>
                 digsel <= "11011111";
+                decoder_in<= number_unidades;
        end case;
      end process;
       clk_aux <= clk;
       ok_out<=ok_aux;
       reset_aux<=reset;
+      number_int <= to_integer(unsigned(number_vector));
+      number_unidades <= std_logic_vector(to_unsigned(number_int mod 10, 4));
+      number_decimales <= std_logic_vector(to_unsigned(number_int / 10, 4));
+      
 end Behavioral;
