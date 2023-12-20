@@ -64,7 +64,7 @@ begin
         end if;
     end process;
     
-  process(estado_actual,price,count,option)
+  process(estado_actual,price,count,option,reset)
   begin
    case estado_actual is
     when S0 =>

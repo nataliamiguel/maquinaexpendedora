@@ -1,0 +1,124 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Wed Dec 20 12:39:50 2023
+| Host         : LAPTOP-6VNODD3K running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
+| Design       : Top
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    46 |
+|    Minimum number of control sets                        |    46 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   277 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    46 |
+| >= 0 to < 4        |    35 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              41 |           18 |
+| No           | No                    | Yes                    |              40 |           24 |
+| No           | Yes                   | No                     |             102 |           37 |
+| Yes          | No                    | No                     |               4 |            4 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------------------------------------+-----------------------------------------------------+-------------------------------------------------------+------------------+----------------+--------------+
+|                     Clock Signal                     |                    Enable Signal                    |                    Set/Reset Signal                   | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------------------------------+-----------------------------------------------------+-------------------------------------------------------+------------------+----------------+--------------+
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_8  |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_7    |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_12 |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_11   |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_1    |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_10 |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_9    |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_16 |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_15   |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_4  |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_3    |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_2  |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_1    |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_6  |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_5    |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_0  |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]      |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/digsel_change_reg[2]_1  |                                                     | inst_DISPLAY_ERR/inst_ERROR/digsel_change_reg[2]_0    |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_14 |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_13   |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_13   |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/final                     |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_2    |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_11   |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_6    |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_9    |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_15   |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG                                       | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[1]0 |                                                       |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | estado_siguiente_reg[1]_LDC_i_2_n_0                   |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | estado_siguiente[0]_i_1_n_0                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG                                       | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[3]0 |                                                       |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG                                       | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[2]0 |                                                       |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_7    |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG                                       | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[0]0 |                                                       |                1 |              1 |         1.00 |
+|  estado_siguiente_reg[1]_LDC_i_1_n_0                 |                                                     | estado_siguiente_reg[1]_LDC_i_2_n_0                   |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_5    |                1 |              1 |         1.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]      |                1 |              1 |         1.00 |
+|  inst_DISPLAY_ERR/inst_ERROR/segments2               |                                                     |                                                       |                1 |              2 |         2.00 |
+|  CLK_IBUF_BUFG                                       |                                                     | reset_IBUF                                            |                1 |              2 |         2.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/digsel_change_reg[2]_0    |                1 |              2 |         2.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_4    |                1 |              2 |         2.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/digsel_change_reg[2]_1    |                1 |              2 |         2.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/estado_actual_reg[0]_3    |                1 |              2 |         2.00 |
+| ~ok_option                                           |                                                     | inst_DISPLAY_ERR/inst_ERROR/segments2                 |                3 |              3 |         1.00 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[2]0   |                2 |              5 |         2.50 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[1]0   |                2 |              5 |         2.50 |
+|  inst_DISPLAY_CH/inst_CHANGE/change_reg[6]_i_1_n_0   |                                                     |                                                       |                2 |              7 |         3.50 |
+|  inst_DISPLAY_COUNTER/inst_Edgectr/E[0]              |                                                     |                                                       |                3 |              7 |         2.33 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[3]0   |                2 |              8 |         4.00 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_COUNTER/inst_Debouncer/counter_reg[0]0   |                2 |             10 |         5.00 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_COUNTER/inst_Edgectr/reset               |                4 |             15 |         3.75 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_CH/counter_1ms[0]_i_1_n_0                |                5 |             17 |         3.40 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_ERR/inst_ERROR/counter_1ms[0]_i_1__0_n_0 |                5 |             17 |         3.40 |
+|  CLK_IBUF_BUFG                                       |                                                     | inst_DISPLAY_ERR/inst_ERROR/counter_2s[0]_i_1_n_0     |                7 |             28 |         4.00 |
+|  CLK_IBUF_BUFG                                       |                                                     |                                                       |               12 |             29 |         2.42 |
++------------------------------------------------------+-----------------------------------------------------+-------------------------------------------------------+------------------+----------------+--------------+
+
+

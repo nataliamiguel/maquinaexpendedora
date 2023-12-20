@@ -35,12 +35,13 @@ entity DISPLAY_ERR is
 Port ( clk : in STD_LOGIC;
        reset : in STD_LOGIC;
        input_error: in STD_LOGIC;
-       led: OUT std_logic;
+       led: OUT std_logic_vector(15 downto 0);
        digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0));
 end DISPLAY_ERR;
 
 architecture Behavioral of DISPLAY_ERR is
+signal segment_aux: std_logic_vector(6 downto 0);
 ------
 --DECLARACIÓN
 ------
@@ -49,7 +50,7 @@ architecture Behavioral of DISPLAY_ERR is
             error : IN std_logic;
             reset : IN STD_LOGIC;
             CLK : IN STD_LOGIC;
-            led: OUT std_logic;
+            led: OUT std_logic_vector(15 downto 0);
             digsel: OUT std_logic_vector(7 downto 0);
             segment_error : OUT std_logic_vector(6 DOWNTO 0));
     end component ERROR;
@@ -64,7 +65,7 @@ begin
         CLK => clk,
         led => led,
         digsel => digsel,
-        segment_error => segment
+        segment_error => segment_aux
      );
-
+    segment<=segment_aux;
 end Behavioral;

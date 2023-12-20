@@ -57,7 +57,7 @@ begin
         end if;
     end process;
 
-    return_change: process (clk, estado_actual)
+    return_change: process (clk, estado_actual,option,count)
     begin
         if (option = "100") then --AGUA 1€ 
         --multiplicamos 1€ por 10 para quitar la parte decimal(si la hubiera)
@@ -75,7 +75,7 @@ begin
         end if;
     end process;
     
-    reassemble_button: process (reassemble)
+    reassemble_button: process (reassemble,estado_actual)
     begin
         --si pulsamos reassemble y estamos en los estados S5, S6 o S7, vuelve al estado S0
         if (reassemble='1') then

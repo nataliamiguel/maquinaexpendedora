@@ -44,6 +44,7 @@ Port ( clk : in STD_LOGIC;
 end DISPLAY_CH;
 
 architecture Behavioral of DISPLAY_CH is
+signal segment_aux: std_logic_vector(6 downto 0);
 -- DECLARACION
     component CHANGE is
         Port ( reset : in STD_LOGIC;
@@ -84,7 +85,7 @@ begin
     
     inst_DECODER: Decoder  port map(
         code=>decoder_in,
-        segment=>segment
+        segment=>segment_aux
     );
     
 --IMPRIMIR EL CAMBIO:
@@ -119,6 +120,6 @@ reloj_1ms: process(clk_aux)
      integer_change <= to_integer(unsigned(change_signal));
      number_unidades <= std_logic_vector(to_unsigned(integer_change mod 10, 4));
      number_decenas <= std_logic_vector(to_unsigned(integer_change / 10, 4));
-
+    segment<=segment_aux;
 
 end Behavioral;

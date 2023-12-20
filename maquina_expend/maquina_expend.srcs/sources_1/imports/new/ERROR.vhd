@@ -36,7 +36,7 @@ PORT (
     error : IN std_logic;
     reset : IN STD_LOGIC;
     CLK : IN STD_LOGIC;
-    led: OUT std_logic;
+    led: OUT std_logic_vector(15 downto 0);
     digsel: OUT std_logic_vector(7 downto 0);
     segment_error : OUT std_logic_vector(6 DOWNTO 0)    
 );
@@ -114,10 +114,10 @@ error_led: process(error,final)
     begin
         if (final=0) then
             if (error = '1') then
-                led <= '1';  -- Se enciende el LED de error
+                led <= "1111111111111111";  -- Se enciende el LED de error
             end if;
         else
-            led <= '0';
+            led <= "0000000000000000";
         end if; 
 end process;
 

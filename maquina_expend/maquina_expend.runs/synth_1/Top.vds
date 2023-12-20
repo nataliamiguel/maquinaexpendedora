@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Tue Dec 19 22:23:11 2023
-# Process ID: 25536
+# Start of session at: Wed Dec 20 12:38:09 2023
+# Process ID: 11048
 # Current directory: C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1
 # Command line: vivado.exe -log Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top.tcl
 # Log file: C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1/Top.vds
@@ -12,7 +12,7 @@
 # Running On: LAPTOP-6VNODD3K, OS: Windows, CPU Frequency: 2895 MHz, CPU Physical cores: 16, Host memory: 16497 MB
 #-----------------------------------------------------------
 source Top.tcl -notrace
-create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 434.832 ; gain = 164.730
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 434.125 ; gain = 164.395
 Command: read_checkpoint -auto_incremental -incremental C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/utils_1/imports/synth_1/Top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/utils_1/imports/synth_1/Top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -25,21 +25,18 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 8100
+INFO: [Synth 8-7075] Helper process launched with PID 6904
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 1268.633 ; gain = 411.215
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1268.977 ; gain = 411.426
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Top' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:49]
-INFO: [Synth 8-3491] module 'DISPLAY_COUNTER' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:34' bound to instance 'inst_DISPLAY_COUNTER' of component 'DISPLAY_COUNTER' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:114]
+INFO: [Synth 8-3491] module 'DISPLAY_COUNTER' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:34' bound to instance 'inst_DISPLAY_COUNTER' of component 'DISPLAY_COUNTER' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:119]
 INFO: [Synth 8-638] synthesizing module 'DISPLAY_COUNTER' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:45]
 INFO: [Synth 8-3491] module 'Debouncer' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/Debouncer.vhd:4' bound to instance 'inst_Debouncer' of component 'Debouncer' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:98]
 INFO: [Synth 8-638] synthesizing module 'Debouncer' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/Debouncer.vhd:15]
 INFO: [Synth 8-256] done synthesizing module 'Debouncer' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/Debouncer.vhd:15]
 INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:35' bound to instance 'inst_COUNTER' of component 'COUNTER' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:103]
 INFO: [Synth 8-638] synthesizing module 'COUNTER' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:44]
-WARNING: [Synth 8-614] signal 'COIN' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:61]
-WARNING: [Synth 8-614] signal 'actual_count' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:61]
-WARNING: [Synth 8-614] signal 'OK' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:61]
 INFO: [Synth 8-256] done synthesizing module 'COUNTER' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:44]
 INFO: [Synth 8-3491] module 'SYNCHRNZR' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/SYNCHRNZR.vhd:34' bound to instance 'inst_SYNCHRNZR' of component 'SYNCHRNZR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:111]
 INFO: [Synth 8-638] synthesizing module 'SYNCHRNZR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/SYNCHRNZR.vhd:41]
@@ -50,39 +47,42 @@ INFO: [Synth 8-256] done synthesizing module 'DECODER' (0#1) [C:/Users/tobia/Dow
 INFO: [Synth 8-3491] module 'EDGECTR' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/EDGECTR.vhd:34' bound to instance 'inst_Edgectr' of component 'edgectr' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:121]
 INFO: [Synth 8-638] synthesizing module 'EDGECTR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/EDGECTR.vhd:42]
 INFO: [Synth 8-256] done synthesizing module 'EDGECTR' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/EDGECTR.vhd:42]
-WARNING: [Synth 8-614] signal 'number_decenas' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:140]
-WARNING: [Synth 8-614] signal 'number_unidades' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:140]
 INFO: [Synth 8-256] done synthesizing module 'DISPLAY_COUNTER' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:45]
-INFO: [Synth 8-3491] module 'DISPLAY_OPTION' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:34' bound to instance 'inst_DISPLAY_OPTION' of component 'DISPLAY_OPTION' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:125]
+INFO: [Synth 8-3491] module 'DISPLAY_OPTION' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:34' bound to instance 'inst_DISPLAY_OPTION' of component 'DISPLAY_OPTION' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:130]
 INFO: [Synth 8-638] synthesizing module 'DISPLAY_OPTION' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:46]
 INFO: [Synth 8-3491] module 'COMPARE' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:35' bound to instance 'inst_COMPARE' of component 'COMPARE' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:79]
 INFO: [Synth 8-638] synthesizing module 'COMPARE' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:46]
-WARNING: [Synth 8-614] signal 'reset' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'COMPARE' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'DISPLAY_OPTION' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:46]
-INFO: [Synth 8-3491] module 'DISPLAY_CH' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:34' bound to instance 'inst_DISPLAY_CH' of component 'DISPLAY_CH' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:135]
+INFO: [Synth 8-3491] module 'DISPLAY_CH' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:34' bound to instance 'inst_DISPLAY_CH' of component 'DISPLAY_CH' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:141]
 INFO: [Synth 8-638] synthesizing module 'DISPLAY_CH' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:46]
-INFO: [Synth 8-3491] module 'CHANGE' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:34' bound to instance 'inst_CHANGE' of component 'CHANGE' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:76]
+INFO: [Synth 8-3491] module 'CHANGE' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:34' bound to instance 'inst_CHANGE' of component 'CHANGE' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:77]
 INFO: [Synth 8-638] synthesizing module 'CHANGE' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:45]
-WARNING: [Synth 8-614] signal 'option' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:60]
-WARNING: [Synth 8-614] signal 'count' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:60]
-WARNING: [Synth 8-614] signal 'estado_actual' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:78]
 WARNING: [Synth 8-614] signal 'estado_siguiente' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:78]
 INFO: [Synth 8-256] done synthesizing module 'CHANGE' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:45]
-INFO: [Synth 8-3491] module 'DECODER' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:34' bound to instance 'inst_DECODER' of component 'decoder' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:85]
-WARNING: [Synth 8-614] signal 'number_decenas' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:105]
-WARNING: [Synth 8-614] signal 'number_unidades' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:105]
+INFO: [Synth 8-3491] module 'DECODER' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:34' bound to instance 'inst_DECODER' of component 'decoder' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:86]
+WARNING: [Synth 8-614] signal 'number_decenas' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:106]
+WARNING: [Synth 8-614] signal 'number_unidades' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:106]
 INFO: [Synth 8-256] done synthesizing module 'DISPLAY_CH' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:46]
-INFO: [Synth 8-3491] module 'DISPLAY_ERR' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_ERR.vhd:34' bound to instance 'inst_DISPLAY_ERR' of component 'DISPLAY_ERR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:146]
+INFO: [Synth 8-3491] module 'DISPLAY_ERR' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_ERR.vhd:34' bound to instance 'inst_DISPLAY_ERR' of component 'DISPLAY_ERR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:152]
 INFO: [Synth 8-638] synthesizing module 'DISPLAY_ERR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_ERR.vhd:43]
-INFO: [Synth 8-3491] module 'ERROR' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:34' bound to instance 'inst_ERROR' of component 'ERROR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_ERR.vhd:61]
+INFO: [Synth 8-3491] module 'ERROR' declared at 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:34' bound to instance 'inst_ERROR' of component 'ERROR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_ERR.vhd:62]
 INFO: [Synth 8-638] synthesizing module 'ERROR' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'ERROR' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'DISPLAY_ERR' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_ERR.vhd:43]
-WARNING: [Synth 8-614] signal 'ok_counter' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:165]
-WARNING: [Synth 8-614] signal 'ok_option' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:165]
+WARNING: [Synth 8-614] signal 'ok_counter' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'segment_aux1' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'DP_aux1' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'digsel_aux1' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'ok_option' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'segment_aux2' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'DP_aux2' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'digsel_aux2' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'segment_aux4' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'digsel_aux4' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
+WARNING: [Synth 8-614] signal 'led_aux' is read in the process but is not in the sensitivity list [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:171]
 INFO: [Synth 8-256] done synthesizing module 'Top' (0#1) [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:49]
-WARNING: [Synth 8-3848] Net estado_siguiente in module/entity COUNTER does not have driver. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:47]
+WARNING: [Synth 8-3848] Net ok_cuenta in module/entity COUNTER does not have driver. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:41]
 WARNING: [Synth 8-3848] Net error in module/entity DISPLAY_OPTION does not have driver. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:42]
 WARNING: [Synth 8-3848] Net clk_aux in module/entity DISPLAY_OPTION does not have driver. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:65]
 WARNING: [Synth 8-3848] Net reset_aux in module/entity DISPLAY_OPTION does not have driver. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:66]
@@ -100,66 +100,58 @@ WARNING: [Synth 8-7129] Port count[3] in module DISPLAY_OPTION is either unconne
 WARNING: [Synth 8-7129] Port count[2] in module DISPLAY_OPTION is either unconnected or has no load
 WARNING: [Synth 8-7129] Port count[1] in module DISPLAY_OPTION is either unconnected or has no load
 WARNING: [Synth 8-7129] Port count[0] in module DISPLAY_OPTION is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ok_cuenta in module COUNTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module COUNTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module COUNTER is either unconnected or has no load
+WARNING: [Synth 8-7129] Port OK in module COUNTER is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1362.219 ; gain = 504.801
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1363.539 ; gain = 505.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1362.219 ; gain = 504.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1363.539 ; gain = 505.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1362.219 ; gain = 504.801
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1363.539 ; gain = 505.988
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1362.219 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1363.539 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
-WARNING: [Vivado 12-584] No ports matched 'LED'. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:33]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:33]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'segments[6]]'. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:66]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:66]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'digsel2]'. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:72]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:72]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1475.234 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1469.430 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1475.234 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1469.430 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:20 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:20 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:20 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'estado_actual_reg' in module 'COMPARE'
-WARNING: [Synth 8-327] inferring latch for variable 'actual_count_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-WARNING: [Synth 8-327] inferring latch for variable 'actual_count_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-WARNING: [Synth 8-327] inferring latch for variable 'ok_cuenta_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:77]
-WARNING: [Synth 8-327] inferring latch for variable 'estado_actual_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:74]
+WARNING: [Synth 8-327] inferring latch for variable 'actual_count_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:63]
 WARNING: [Synth 8-327] inferring latch for variable 'DP_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:146]
 WARNING: [Synth 8-327] inferring latch for variable 'importe_ok_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:72]
 ---------------------------------------------------------------------------------------------------
@@ -178,50 +170,55 @@ INFO: [Synth 8-3354] encoded FSM with state register 'estado_actual_reg' using e
 WARNING: [Synth 8-327] inferring latch for variable 'error_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COMPARE.vhd:89]
 WARNING: [Synth 8-327] inferring latch for variable 'DP_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:107]
 WARNING: [Synth 8-327] inferring latch for variable 'change_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:66]
-WARNING: [Synth 8-327] inferring latch for variable 'DP_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:111]
+WARNING: [Synth 8-327] inferring latch for variable 'DP_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:112]
 WARNING: [Synth 8-327] inferring latch for variable 'led_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:117]
-WARNING: [Synth 8-327] inferring latch for variable 'ok_option_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:174]
-WARNING: [Synth 8-327] inferring latch for variable 'ok_counter_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:122]
+WARNING: [Synth 8-327] inferring latch for variable 'ok_counter_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:127]
+WARNING: [Synth 8-327] inferring latch for variable 'ok_option_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:183]
+WARNING: [Synth 8-327] inferring latch for variable 'led_reg' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:201]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:20 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 1     
 	   2 Input   10 Bit       Adders := 4     
-	   2 Input    7 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 2     
 	   2 Input    3 Bit       Adders := 2     
 	   2 Input    1 Bit       Adders := 3     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 4     
 +---Registers : 
 	               10 Bit    Registers := 4     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
 	                4 Bit    Registers := 3     
 	                3 Bit    Registers := 6     
 	                2 Bit    Registers := 6     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 4     
 +---Muxes : 
-	   3 Input   32 Bit        Muxes := 1     
-	   2 Input    8 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 6     
 	   7 Input    8 Bit        Muxes := 1     
 	   8 Input    8 Bit        Muxes := 1     
-	   4 Input    7 Bit        Muxes := 6     
+	   4 Input    8 Bit        Muxes := 2     
+	   4 Input    7 Bit        Muxes := 8     
 	   6 Input    7 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 4     
 	   3 Input    6 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 4     
+	   4 Input    4 Bit        Muxes := 1     
 	   5 Input    3 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 4     
 	   4 Input    3 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 3     
 	   3 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 9     
-	   4 Input    1 Bit        Muxes := 3     
+	   2 Input    1 Bit        Muxes := 11    
+	   4 Input    1 Bit        Muxes := 4     
 	   5 Input    1 Bit        Muxes := 4     
 	   7 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -238,175 +235,44 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3917] design Top has port digsel[7] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port digsel[6] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port digsel[5] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port digsel[4] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port digsel[3] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port digsel[2] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port digsel[1] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port digsel[0] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port segments[6] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port segments[5] driven by constant 1
-WARNING: [Synth 8-3917] design Top has port segments[4] driven by constant 1
 WARNING: [Synth 8-7129] Port reassemble in module Top is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[31]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[30]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[29]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[28]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[27]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[26]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[25]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[24]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[23]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[22]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[21]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[20]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[19]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[18]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[17]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[16]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[15]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[14]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[13]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[12]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[11]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[10]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[9]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[8]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[7]) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[31]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[30]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[29]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[28]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[27]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[26]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[25]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[24]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[23]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[22]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[21]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[20]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[19]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[18]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[17]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[16]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[15]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[14]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[13]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[12]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[11]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[10]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[9]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[8]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[7]__0) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/inst_COUNTER/estado_actual_reg) is unused and will be removed from module Top.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/estado_actual_reg__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:53]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:53]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:53]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[4] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_DECODER/segment_inferred/out0[4]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[4] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[4] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[5] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_DECODER/segment_inferred/out0[5]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[5] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[6] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_DECODER/segment_inferred/out0[6]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[6] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[5] with 1st driver pin 'inst_DISPLAY_COUNTER/digsel_inferred/digsel[5]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:142]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[5] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:142]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:142]
+WARNING: [Synth 8-7129] Port SW_in[0] in module Top is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_COUNTER/DP_reg) is unused and will be removed from module Top.
 WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_OPTION/inst_COMPARE/importe_ok_reg) is unused and will be removed from module Top.
 WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_OPTION/inst_COMPARE/FSM_sequential_estado_actual_reg[2]) is unused and will be removed from module Top.
 WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_OPTION/inst_COMPARE/FSM_sequential_estado_actual_reg[1]) is unused and will be removed from module Top.
 WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_OPTION/inst_COMPARE/FSM_sequential_estado_actual_reg[0]) is unused and will be removed from module Top.
 WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_OPTION/inst_COMPARE/error_reg) is unused and will be removed from module Top.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[6] with 1st driver pin 'inst_DISPLAY_OPTION/digsel_inferred/digsel[6]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[6] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[5] with 1st driver pin 'inst_DISPLAY_OPTION/digsel_inferred/digsel[5]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[5] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[3] with 1st driver pin 'inst_DISPLAY_OPTION/digsel_inferred/digsel[3]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[3] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[3] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[2] with 1st driver pin 'inst_DISPLAY_OPTION/digsel_inferred/digsel[2]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[2] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[2] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[1] with 1st driver pin 'inst_DISPLAY_OPTION/digsel_inferred/digsel[1]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[1] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[1] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[0] with 1st driver pin 'inst_DISPLAY_OPTION/digsel_inferred/digsel[0]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[0] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[0] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[4] with 1st driver pin 'inst_DISPLAY_OPTION/segment_inferred__5/out0[4]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[4] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[4] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[5] with 1st driver pin 'inst_DISPLAY_OPTION/segment_inferred__5/out0[5]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[5] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[6] with 1st driver pin 'inst_DISPLAY_OPTION/segment_inferred__5/out0[6]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[6] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_OPTION.vhd:104]
 WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_OPTION/DP_reg) is unused and will be removed from module Top.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[4] with 1st driver pin 'inst_DISPLAY_CH/inst_DECODER/segment_inferred/out0[4]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[4] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[4] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[5] with 1st driver pin 'inst_DISPLAY_CH/inst_DECODER/segment_inferred/out0[5]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[5] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[6] with 1st driver pin 'inst_DISPLAY_CH/inst_DECODER/segment_inferred/out0[6]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out0[6] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net out0[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/DECODER.vhd:43]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[1] with 1st driver pin 'inst_DISPLAY_CH/digsel_inferred/digsel[1]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:107]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[1] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:107]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[1] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:107]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[7] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[7]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[7] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[7] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[6] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[6]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[6] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[5] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[5]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[5] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[4] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[4]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[4] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[4] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[3] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[3]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[3] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[3] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[2] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[2]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[2] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[2] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[1] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[1]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[1] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[1] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[0] with 1st driver pin 'inst_DISPLAY_ERR/inst_ERROR/digsel_inferred/digsel[0]' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin digsel[0] with 2nd driver pin 'VCC' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net digsel[0] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/ERROR.vhd:90]
+WARNING: [Synth 8-3332] Sequential element (inst_DISPLAY_CH/DP_reg) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (ok_counter_reg) is unused and will be removed from module Top.
 WARNING: [Synth 8-3332] Sequential element (estado_siguiente_reg[1]_P) is unused and will be removed from module Top.
-WARNING: [Synth 8-3332] Sequential element (estado_siguiente_reg[0]_P) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (digsel_reg[7]_P) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (digsel_reg[6]_P) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (digsel_reg[5]_P) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (digsel_reg[4]_P) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (digsel_reg[3]_P) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (digsel_reg[0]_P) is unused and will be removed from module Top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:25 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:21 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:32 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:26 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:32 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:26 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:32 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:26 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -424,75 +290,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[6] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[6]/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[6] with 2nd driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[6]__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[5] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[5]/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[5] with 2nd driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[5]__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[4] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[4]/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[4] with 2nd driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[4]__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[3] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[3]/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[3] with 2nd driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[3]__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[2] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[2]/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[2] with 2nd driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[2]__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[1] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[1]/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[1] with 2nd driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[1]__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[0] with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[0]/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:64]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin count_aux[0] with 2nd driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/actual_count_reg[0]__0/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin ok_out with 1st driver pin 'inst_DISPLAY_COUNTER/inst_COUNTER/ok_cuenta_reg/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/COUNTER.vhd:77]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin ok_out with 2nd driver pin 'ok_counter_reg/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/imports/new/Top.vhd:122]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin DP_OBUF with 1st driver pin 'inst_DISPLAY_COUNTER/DP_reg/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd:146]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin DP_OBUF with 2nd driver pin 'inst_DISPLAY_CH/DP_reg/Q' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/DISPLAY_CH.vhd:111]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[1] with 1st driver pin 'segments_OBUF[2]_inst_i_1/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[1] with 2nd driver pin 'segments_OBUF[2]_inst_i_2/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[1] with 3rd driver pin 'segments_OBUF[2]_inst_i_3/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[1] with 4th driver pin 'segments_OBUF[2]_inst_i_4/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[1] with 5th driver pin 'segments_OBUF[2]_inst_i_5/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[1] with 6th driver pin 'segments_OBUF[2]_inst_i_6/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[0] with 1st driver pin 'segments_OBUF[3]_inst_i_1/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[0] with 2nd driver pin 'segments_OBUF[3]_inst_i_2/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[0] with 3rd driver pin 'segments_OBUF[3]_inst_i_3/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[0] with 4th driver pin 'segments_OBUF[3]_inst_i_4/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[0] with 5th driver pin 'segments_OBUF[3]_inst_i_5/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[0] with 6th driver pin 'segments_OBUF[3]_inst_i_6/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin segments_OBUF[0] with 7th driver pin 'segments_OBUF[3]_inst_i_7/O' [C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.srcs/sources_1/new/CHANGE.vhd:62]
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|       11|Failed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -522,48 +350,47 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     2|
-|2     |CARRY4 |    31|
-|3     |LUT1   |    11|
+|1     |BUFG   |     1|
+|2     |CARRY4 |    19|
+|3     |LUT1   |     8|
 |4     |LUT2   |    21|
-|5     |LUT3   |    14|
-|6     |LUT4   |    37|
-|7     |LUT5   |    39|
-|8     |LUT6   |    57|
+|5     |LUT3   |    16|
+|6     |LUT4   |    35|
+|7     |LUT5   |    51|
+|8     |LUT6   |    39|
 |9     |SRL16E |     4|
-|10    |FDCE   |    19|
-|11    |FDRE   |   157|
-|12    |LD     |    26|
-|13    |LDC    |     3|
-|14    |IBUF   |     9|
-|15    |OBUF   |    17|
+|10    |FDCE   |    31|
+|11    |FDPE   |     9|
+|12    |FDRE   |   119|
+|13    |LD     |    16|
+|14    |LDC    |    12|
+|15    |IBUF   |     9|
+|16    |OBUF   |    32|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 109 critical warnings and 85 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:38 . Memory (MB): peak = 1475.234 ; gain = 504.801
-Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:40 . Memory (MB): peak = 1475.234 ; gain = 617.816
+Synthesis finished with 0 errors, 0 critical warnings and 30 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:30 . Memory (MB): peak = 1469.430 ; gain = 505.988
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:32 . Memory (MB): peak = 1469.430 ; gain = 611.879
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1475.234 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 60 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1469.430 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 47 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 4 inverter(s) to 10 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1475.234 ; gain = 0.000
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1469.430 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 29 instances were transformed.
-  LD => LDCE: 17 instances
-  LD => LDCE (inverted pins: G): 9 instances
-  LDC => LDCE: 2 instances
+  A total of 28 instances were transformed.
+  LD => LDCE: 16 instances
+  LDC => LDCE: 11 instances
   LDC => LDCE (inverted pins: G): 1 instance 
 
-Synth Design complete | Checksum: 316c2ee1
+Synth Design complete | Checksum: 53d17c5d
 INFO: [Common 17-83] Releasing license: Synthesis
-62 Infos, 120 Warnings, 112 Critical Warnings and 0 Errors encountered.
+62 Infos, 66 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:47 . Memory (MB): peak = 1475.234 ; gain = 1015.562
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:38 . Memory (MB): peak = 1469.430 ; gain = 1010.449
 INFO: [Common 17-1381] The checkpoint 'C:/Users/tobia/Downloads/trabajo_sed/maquinaexpendedora/maquina_expend/maquina_expend.runs/synth_1/Top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_utilization_synth.rpt -pb Top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 19 22:24:08 2023...
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 20 12:38:56 2023...

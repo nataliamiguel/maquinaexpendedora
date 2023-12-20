@@ -42,7 +42,7 @@ PORT (
     digsel: OUT std_logic_vector(7 DOWNTO 0);
     segments: out std_logic_vector(6 downto 0); 
     DP: out std_logic;
-    led: OUT std_logic 
+    led: OUT std_logic_vector(15 downto 0) 
     );
 end Top;
 
@@ -55,11 +55,16 @@ architecture Behavioral of Top is
     signal reset_aux: std_logic;
     signal clk_aux: std_logic;
     signal count_aux: std_logic_vector(6 downto 0);
-    signal digsel_aux: std_logic_vector (7 downto 0);
-    signal segment_aux: std_logic_vector (6 downto 0);
-    signal DP_aux: std_logic;
+    signal digsel_aux1,digsel_aux2,digsel_aux3,digsel_aux4: std_logic_vector (7 downto 0):="00000000";
+    signal segment_aux1: std_logic_vector (6 downto 0):="0000000";
+    signal segment_aux2: std_logic_vector (6 downto 0):="0000000";
+    signal segment_aux3: std_logic_vector (6 downto 0):="0000000";
+    signal segment_aux4: std_logic_vector (6 downto 0):="0000000";
+    signal DP_aux1: std_logic;
+    signal DP_aux2: std_logic;
+    signal DP_aux3: std_logic;
     signal error_aux:std_logic;
-    signal led_aux:std_logic;
+    signal led_aux:std_logic_vector(15 downto 0);
     signal sw_aux: std_logic_vector(2 downto 0);
     
     
@@ -91,8 +96,8 @@ architecture Behavioral of Top is
     component DISPLAY_ERR is
 Port ( clk : in STD_LOGIC;
        reset : in STD_LOGIC;
-       input_error: in STD_LOGIC;
-       led: OUT std_logic;
+       input_error: in  std_logic;
+       led: OUT STD_LOGIC_vector(15 downto 0);
        digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0));
 end component;
@@ -116,20 +121,21 @@ inst_DISPLAY_COUNTER: DISPLAY_COUNTER Port map (
        coin_in=> coin,
        reset=>reset_aux,
        ok_in => sw_in(0),
-       digsel => digsel_aux,
-       segment_out => segment_aux,
+       digsel => digsel_aux1,
+       segment_out => segment_aux1,
        count => count_aux,
        ok_out=> ok_counter,
-       DP =>DP_aux); 
+       DP =>DP_aux1); 
        
  inst_DISPLAY_OPTION: DISPLAY_OPTION port map(
        clk =>clk_aux,
         reset=>reset_aux,
         count=>count_aux,
         sw=> sw_aux,
-        digsel =>digsel_aux,
-        segment=> segment_aux,
-        error=> error_aux
+        digsel =>digsel_aux2,
+        segment=> segment_aux2,
+        error=> error_aux,
+        DP=>DP_aux2
  );    
 
 inst_DISPLAY_CH: DISPLAY_CH port map(
@@ -138,9 +144,9 @@ inst_DISPLAY_CH: DISPLAY_CH port map(
        option=>sw_aux,
        reassemble=> reassemble,
        count=>count_aux,
-       digsel =>digsel_aux,
-       segment=>segment_aux,
-       DP=>DP_aux
+       digsel =>digsel_aux3,
+       segment=>segment_aux3,
+       DP=>DP_aux3
 );
 
 inst_DISPLAY_ERR: DISPLAY_ERR port map(
@@ -148,14 +154,14 @@ inst_DISPLAY_ERR: DISPLAY_ERR port map(
        reset =>reset_aux,
        input_error=> error_aux,
        led=>led_aux,
-       digsel=> digsel_aux,
-       segment=>segment_aux
+       digsel=> digsel_aux4,
+       segment=>segment_aux4
 );
 
 
     process (clk_aux,reset_aux)
     begin
-        if (reset_aux='1') then
+        if (reset_aux='0') then
             estado_actual<=COUNTER_STATE;
         elsif (rising_edge(clk_aux)) then
         estado_actual<=estado_siguiente;
@@ -169,27 +175,34 @@ inst_DISPLAY_ERR: DISPLAY_ERR port map(
             if (ok_counter='1') then
             estado_siguiente<=OPTIONS_STATE;
             ok_counter<='0';
+            segments<=segment_aux1;
+            DP<=DP_aux1; 
+            digsel<=digsel_aux1;
             end if;
         when OPTIONS_STATE=>
             if (ok_option='1') then
             estado_siguiente<=CHANGE_STATE;
+            segments<=segment_aux2;
+            DP<=DP_aux2; 
+            digsel<=digsel_aux2;
             end if;
         when CHANGE_STATE=>
             if (falling_edge(ok_option)) then
             estado_siguiente<=ERROR_STATE;  
-           
+           segments<=segment_aux3; 
+           DP<=DP_aux3;
+           digsel<=digsel_aux3;
             end if;    
             when ERROR_STATE=>
             ok_option<='1';
-            estado_siguiente<=COUNTER_STATE; 
+            estado_siguiente<=COUNTER_STATE;
+            segments<=segment_aux4;
+            digsel<=digsel_aux4;
+            led<=led_aux;
         end case;   
     end process;
     error_aux<=not ok_option;
     sw_aux<=sw_in(3 downto 1);
     clk_aux<=clk;
-    reset_aux<=reset;
-    digsel<=digsel_aux;
-    segments<=segment_aux; 
-    DP<=DP_aux;
-    led<=led_aux;
+    reset_aux<=not reset;
 end Behavioral;

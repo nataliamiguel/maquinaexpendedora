@@ -45,20 +45,19 @@ architecture Behavioral of COUNTER is
     type ESTADO is (S0, S1);
     signal estado_actual: ESTADO := S0;
     signal estado_siguiente: ESTADO; 
-    signal  actual_count : integer:=0;
+    signal  actual_count : natural range 0 to 99:=0;
     begin
     process(clk, reset)
     begin
-        if (reset = '0') then
+        if (reset = '1') then
             estado_actual <= S0;
-            actual_count <= 0;
         elsif (rising_edge(clk)) then
             estado_actual <= estado_siguiente;
         end if;
     end process;
 
 
-    return_count: process (clk, estado_actual)
+    return_count: process (clk, estado_actual,Coin,Actual_count,ok)
     begin
         if (Coin = "0001") then  --10 cent
             actual_count<=actual_count+1;
@@ -71,11 +70,11 @@ architecture Behavioral of COUNTER is
         else
         end if;
         if(ok = '1') then
-        estado_actual <= S1;
+        estado_siguiente <= S1;
         end if;
-         if(estado_actual = s1) then
-        ok_cuenta<= '0';
-        end if;
+        -- if(estado_actual = s1) then
+        --ok_cuenta<= '0';
+       -- end if;
     end process;
     count <= std_logic_vector(to_unsigned(actual_count, count'length));
 end Behavioral;

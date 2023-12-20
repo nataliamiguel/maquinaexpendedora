@@ -137,7 +137,7 @@ begin
          end if;
          end if;
      end process;
-     digit_seleccion: process(digit_cycle)
+     digit_seleccion: process(digit_cycle,number_decenas,number_unidades)
  begin
         case (digit_cycle) is
             when 0 =>
