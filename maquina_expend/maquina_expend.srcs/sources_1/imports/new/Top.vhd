@@ -168,7 +168,7 @@ inst_DISPLAY_ERR: DISPLAY_ERR port map(
         end if;
     end process;
 
-    process (estado_actual)
+    process (estado_actual,ok_counter,segment_aux1,DP_aux1,digsel_aux1,ok_option,segment_aux2,DP_aux2,DP_aux2,digsel_aux2,segment_aux4,digsel_aux4,led_aux)
     begin
         case estado_actual is
         when COUNTER_STATE=>

@@ -75,7 +75,7 @@ begin
         end if;
     end process;
     
-    reassemble_button: process (reassemble,estado_actual)
+    reassemble_button: process (reassemble,estado_actual,estado_siguiente)
     begin
         --si pulsamos reassemble y estamos en los estados S5, S6 o S7, vuelve al estado S0
         if (reassemble='1') then
