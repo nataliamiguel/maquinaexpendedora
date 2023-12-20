@@ -1,0 +1,12 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../maquina_expend.srcs/sources_1/new/COUNTER.vhd" \
+"../../../../maquina_expend.srcs/sources_1/imports/new/DECODER.vhd" \
+"../../../../maquina_expend.srcs/sources_1/new/DISPLAY_COUNTER.vhd" \
+"../../../../maquina_expend.srcs/sources_1/new/Debouncer.vhd" \
+"../../../../maquina_expend.srcs/sources_1/imports/new/EDGECTR.vhd" \
+"../../../../maquina_expend.srcs/sources_1/new/SYNCHRNZR.vhd" \
+"../../../../maquina_expend.srcs/testbench/new/display_counter_tb.vhd" \
+
+# Do not sort compile order
+nosort
