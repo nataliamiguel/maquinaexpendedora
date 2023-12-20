@@ -71,10 +71,15 @@ architecture Behavioral of COUNTER is
         end if;
         if(ok = '1') then
         estado_siguiente <= S1;
+        else
+        estado_siguiente <= S0;
         end if;
-        -- if(estado_actual = s1) then
-        --ok_cuenta<= '0';
-       -- end if;
+    
+        if(estado_actual = s1) then
+        ok_cuenta<= '0';
+        else
+        ok_cuenta<='1';
+        end if;
     end process;
     count <= std_logic_vector(to_unsigned(actual_count, count'length));
 end Behavioral;
