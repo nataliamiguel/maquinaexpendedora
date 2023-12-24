@@ -18,7 +18,6 @@
 -- 
 ----------------------------------------------------------------------------------
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -40,6 +39,9 @@ Port ( clk : in STD_LOGIC;
        count: in STD_LOGIC_VECTOR (6 downto 0);
        digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0);
+       
+               num_ud:out std_logic_vector(3 downto 0);
+               num_dec:out std_logic_vector(3 downto 0);
        DP : out std_logic);
 end DISPLAY_CH;
 
@@ -64,8 +66,8 @@ signal segment_aux: std_logic_vector(6 downto 0);
     
     --SEÑALES
     signal change_signal: STD_LOGIC_VECTOR (6 downto 0);
-    signal digit_cycle: natural range 0 to 1 := 0;
-    signal counter_1ms: natural range 0 to 99999 := 0;
+    signal digit_cycle: std_logic:='0';
+    signal counter_1ms: natural range 0 to 100000 := 0;
     signal integer_change: integer:=0;
     signal number_unidades: std_logic_vector(3 downto 0);
     signal number_decenas: std_logic_vector(3 downto 0);
@@ -94,32 +96,37 @@ reloj_1ms: process(clk_aux)
  begin
         if (rising_edge(clk_aux)) then
             counter_1ms <= counter_1ms + 1;
-         if (counter_1ms >= 99999) then
-             counter_1ms <= 0;
-             digit_cycle <= digit_cycle + 1;
-         if (digit_cycle > 1)then
-             digit_cycle <= 0;
-         end if;
-         end if;
-         end if;
+            if (counter_1ms >= 9) then --al décimo flanco de subida cambia
+                counter_1ms <= 0;
+                digit_cycle <= not digit_cycle;
+            end if;
+        end if;
      end process;
-     digit_seleccion: process(digit_cycle,number_decenas,number_unidades)
+     
+     
+     digit_seleccion: process(digit_cycle) --number_decenas,number_unidades)
      begin
         case (digit_cycle) is
-            when 0 =>
+            when '0' =>
                 digsel <= "11111011";
                 decoder_in<= number_decenas;
                 DP <= '1';
-            when 1 =>
+            when '1' =>
                 digsel <= "11111101";
                 decoder_in<= number_unidades;
+                DP <= '1';
+            when others=>
+                DP <= '0';
        end case;
      end process;
      
      clk_aux <= clk;
+     segment<=segment_aux;
      integer_change <= to_integer(unsigned(change_signal));
      number_unidades <= std_logic_vector(to_unsigned(integer_change mod 10, 4));
      number_decenas <= std_logic_vector(to_unsigned(integer_change / 10, 4));
-    segment<=segment_aux;
+     num_ud<=number_unidades;
+     num_dec<=number_decenas;
 
 end Behavioral;
+

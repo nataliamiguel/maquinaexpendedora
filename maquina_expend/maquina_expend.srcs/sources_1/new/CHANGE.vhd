@@ -18,7 +18,6 @@
 -- 
 ----------------------------------------------------------------------------------
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -46,46 +45,52 @@ architecture Behavioral of CHANGE is
     type ESTADO is (S0, S5, S6, S7);
     signal estado_actual: ESTADO := S0;
     signal estado_siguiente: ESTADO; 
-
 begin
-    process(clk, reset)
+    
+    process(clk, reset, reassemble)
     begin
-        if (reset = '0') then
+        if (reset = '0') then --activo a nivel bajo
             estado_actual <= S0;
-        elsif (rising_edge(clk)) then
+        elsif (reassemble='1') then --si has recogido el cambio y pulsas 'reassemble', vuelve al estado inicial
+            if (estado_actual = S5 or estado_actual = S6 or estado_actual = S7) then
+                estado_actual<=S0;
+            end if;
+        elsif(rising_edge(clk)) then
             estado_actual <= estado_siguiente;
         end if;
     end process;
 
-    return_change: process (clk, estado_actual,option,count)
+    cambiar_estado: process (clk, estado_actual,option,reset)
     begin
-        if (option = "100") then --AGUA 1€ 
-        --multiplicamos 1€ por 10 para quitar la parte decimal(si la hubiera)
-        --10 en binario es 1010 -> 0001010
-            estado_siguiente<=S5;
-            change<= (count-"0001010");
-        elsif (option="010") then  --COCA 1.8€
-        -- 18 en binario es 0010010
-            estado_siguiente<=S6;
-            change<= (count-"0010010");
-        elsif (option="001") then --CAFE 0.7€
-        -- 7 en binario es 0000111
-            estado_siguiente<=S7;
-            change<= (count-"0000111");
-        end if;
-    end process;
-    
-    reassemble_button: process (reassemble,estado_actual,estado_siguiente)
-    begin
-        --si pulsamos reassemble y estamos en los estados S5, S6 o S7, vuelve al estado S0
-        if (reassemble='1') then
-            if (estado_actual = S5 or estado_actual = S6 or estado_actual = S7) then
+        if (option = "100") then 
+            estado_siguiente<=S5; --AGUA
+        elsif (option="010") then  
+            estado_siguiente<=S6; --COCA
+        elsif (option="001") then
+            estado_siguiente<=S7; --CAFÉ
+        else
             estado_siguiente<=S0;
-            end if;
         end if;
-        estado_actual<=estado_siguiente;
     end process;
     
+    calcular_cambio: process (clk, estado_actual,option)
+    begin
+        case (estado_actual) is
+            when S0 =>
+                change<="0000000";
+            when S5 =>
+                change<= (count-"0001010"); --AGUA 1€ 
+                --multiplicamos 1€ por 10 para quitar la parte decimal(si la hubiera)
+                --10 en binario es 1010 -> 0001010
+            when S6 =>
+                change<= (count-"0010010"); --COCA 1.8€
+                -- 18 en binario es 0010010
+            when S7 =>
+                change<= (count-"0000111"); --CAFE 0.7€
+                -- 7 en binario es 0000111
+        end case;
+    end process;
     
-    
+   
 end Behavioral;
+
