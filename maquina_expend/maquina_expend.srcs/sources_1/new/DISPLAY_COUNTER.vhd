@@ -83,7 +83,7 @@ architecture Behavioral of DISPLAY_COUNTER is
     end component;
        signal ok_aux: std_logic := '0';
        signal reset_aux: std_logic;
-       signal digit_cycle: natural range 0 to 1 := 0;
+       signal digit_cycle: std_logic:= '0';
        signal counter_1ms: natural range 0 to 99999 := 0;
        signal number_int: integer:=0;
        signal number_unidades: std_logic_vector(3 downto 0);
@@ -94,6 +94,7 @@ architecture Behavioral of DISPLAY_COUNTER is
        signal sync_aux: std_logic_vector(3 downto 0);
        signal async_aux: std_logic_vector(3 downto 0); 
        signal coin_aux : std_logic_vector(3 downto 0);
+       signal digsel_aux: std_logic_vector(7 downto 0):=(others=>'0');
 begin 
     inst_Debouncer: Debouncer  port map(
     clk =>clk_aux,
@@ -128,25 +129,25 @@ begin
  begin
         if (rising_edge(clk_aux)) then
             counter_1ms <= counter_1ms + 1;
+
          if (counter_1ms >= 99999) then
              counter_1ms <= 0;
-             digit_cycle <= digit_cycle + 1;
-         if (digit_cycle > 1)then
-             digit_cycle <= 0;
-         end if;
+             digit_cycle <= not digit_cycle; -- Cambio aquí
          end if;
          end if;
      end process;
      digit_seleccion: process(digit_cycle,number_decenas,number_unidades)
  begin
         case (digit_cycle) is
-            when 0 =>
-                digsel <= "10111111";
+            when '0' =>
+                digsel_aux <= "10111111";
                 decoder_in<= number_decenas;
                 DP <= '1';
-            when 1 =>
-                digsel <= "11011111";
+            when '1' =>
+                digsel_aux <= "11011111";
                 decoder_in<= number_unidades;
+                DP<='0';
+             when others=>
        end case;
      end process;
       clk_aux <= clk;
@@ -156,5 +157,5 @@ begin
       number_int <= to_integer(unsigned(number_vector));
       number_unidades <= std_logic_vector(to_unsigned(number_int mod 10, 4));
       number_decenas <= std_logic_vector(to_unsigned(number_int / 10, 4));
-      
+      digsel<=digsel_aux;
 end Behavioral;

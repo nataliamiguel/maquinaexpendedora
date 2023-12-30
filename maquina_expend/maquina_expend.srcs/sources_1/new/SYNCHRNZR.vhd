@@ -44,7 +44,7 @@ architecture Behavioral of SYNCHRNZR is
 begin
     process (reset,clk)
     begin
-        if (reset='0') then
+        if (reset='1') then
             for i in 0 to 3 loop
                 sync_out(i) <= '0';
                 sreg(i) <="00";

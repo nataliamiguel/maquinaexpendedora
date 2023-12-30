@@ -47,7 +47,7 @@ begin
 -- DETECCION DE FLANCO
         process (reset,clk)
         begin
-            if (reset = '0') then
+            if (reset = '1') then
                 for i in 0 to 3 loop
                     sreg(i) <= "000";
                 end loop;
@@ -59,7 +59,7 @@ begin
         end process;
         process (reset, sreg)
         begin
-            if(reset = '0') then
+            if(reset = '1') then
                 edge_aux <= "0000";
             else
                 for i in 0 to 3 loop
