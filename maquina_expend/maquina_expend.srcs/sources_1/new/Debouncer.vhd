@@ -7,7 +7,7 @@ entity Debouncer is
     );
     Port (
         CLK : in STD_LOGIC;
-        COIN : in STD_LOGIC_VECTOR(3 downto 0);
+        btn_in : in STD_LOGIC_VECTOR(3 downto 0);
         COIN_OUT : out STD_LOGIC_VECTOR(3 downto 0)
     );
 end Debouncer;
@@ -27,9 +27,9 @@ begin
     begin
         if rising_edge(CLK) then
             for i in 0 to 3 loop
-                if (coin_prev(i) xor COIN(i)) = '1' then
+                if (coin_prev(i) xor btn_in(i)) = '1' then
                     counter(i) <= (others => '0');
-                    coin_prev(i) <= COIN(i);
+                    coin_prev(i) <= btn_in(i);
                 elsif counter(i)(WIDTH) = '0' then
                     counter(i) <= counter(i) + 1;
                 else

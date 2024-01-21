@@ -77,7 +77,7 @@ architecture Behavioral of DISPLAY_COUNTER is
     component Debouncer is
         Port ( 
                 CLK : in STD_LOGIC;
-                COIN : in STD_LOGIC_VECTOR(3 downto 0);
+                btn_in : in STD_LOGIC_VECTOR(3 downto 0);
                 COIN_OUT : out STD_LOGIC_VECTOR(3 downto 0)
          );
     end component;
@@ -95,11 +95,13 @@ architecture Behavioral of DISPLAY_COUNTER is
        signal async_aux: std_logic_vector(3 downto 0); 
        signal coin_aux : std_logic_vector(3 downto 0);
        signal digsel_aux: std_logic_vector(7 downto 0):=(others=>'0');
+       signal btn_out: std_logic_vector(3 downto 0);
+       signal coin_in_aux : std_logic_vector(3 downto 0);
 begin 
     inst_Debouncer: Debouncer  port map(
     clk =>clk_aux,
-    Coin=>Coin_in,
-    Coin_out=>async_aux
+    btn_in=>sync_aux,
+    Coin_out=>btn_out
     );
     inst_COUNTER: COUNTER  port map(
     reset=> reset_aux,
@@ -112,7 +114,7 @@ begin
     inst_SYNCHRNZR: synchrnzr  port map(
         reset=>reset_aux,
         Clk=>clk_aux,
-        async_in=>async_aux,
+        async_in=>coin_in_aux,
         sync_out=>sync_aux
     );
     inst_DECODER: Decoder  port map(
@@ -121,7 +123,7 @@ begin
     );
     inst_Edgectr: edgectr  port map(
         reset=>reset_aux,
-        sync_in=>sync_aux,
+        sync_in=>btn_out,
         clk=>clk_aux,
         edge=>coin_aux
     );
@@ -151,6 +153,7 @@ begin
        end case;
      end process;
       clk_aux <= clk;
+      coin_in_aux<=coin_in;
       ok_out<=ok_aux;
       reset_aux<=reset;
       count <= number_vector;

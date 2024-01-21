@@ -59,7 +59,7 @@ begin
         end process;
         process (reset, sreg)
         begin
-            if(reset = '1') then
+            if(reset = '0') then
                 edge_aux <= "0000";
             else
                 for i in 0 to 3 loop
