@@ -18,7 +18,6 @@
 -- 
 ----------------------------------------------------------------------------------
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
@@ -38,14 +37,17 @@ entity COUNTER is
            COIN : in STD_LOGIC_VECTOR (3 downto 0);
            OK : in STD_LOGIC;
            count : out STD_LOGIC_VECTOR (6 downto 0);
-           ok_cuenta : out std_logic);
+           ok_cuenta: out std_logic
+           );
+           
 end COUNTER;
 
 architecture Behavioral of COUNTER is
     type ESTADO is (S0, S1);
-    signal estado_actual: ESTADO := S0;
-    signal estado_siguiente: ESTADO; 
+    signal estado_actual: ESTADO := S1;
+    signal estado_siguiente: ESTADO:=S1; 
     signal  actual_count : natural range 0 to 99:=0;
+    signal ok_cuenta_aux: std_logic:='0';
     begin
     process(clk, reset)
     begin
@@ -55,29 +57,37 @@ architecture Behavioral of COUNTER is
             estado_actual <= estado_siguiente;
         end if;
     end process;
-
-
-    return_count: process (clk, estado_actual,Coin,Actual_count,ok)
-    begin
-        if (Coin = "0001") then  --10 cent
-            actual_count<=actual_count+1;
-        elsif (Coin = "0010") then  --20 cent
-            actual_count<=actual_count+2;
-        elsif (Coin = "0100") then  --50 cent
-            actual_count<=actual_count+5;
-        elsif (Coin = "1000") then  --1 euro
-        actual_count<=actual_count+10;
-        else
-        end if;
-        if(ok = '1') then
-        estado_siguiente <= S1;
-        else
-        estado_siguiente <= S0;
-        end if;
+--Estado S0, cuenta = 0
+--Estado S1, suma las monedas
     
-        if(estado_actual = s1) then
-        actual_count<= 0;
+    process (clk,ok,estado_actual,reset)
+    begin
+        if(ok = '1') then      
+            estado_siguiente <= S0;
+            ok_cuenta_aux<='1';
+        else
+           --estado_siguiente <= S1;
         end if;
     end process;
+        
+    process (clk, estado_actual,coin)
+    begin
+        case (estado_actual) is
+            when s0=>
+                actual_count<= 0;
+            when s1=>
+                if (Coin = "0001") then  --10 cent
+                actual_count<=actual_count+1;
+                elsif (Coin = "0010") then  --20 cent
+                actual_count<=actual_count+2;
+                elsif (Coin = "0100") then  --50 cent
+                actual_count<=actual_count+5;
+                elsif (Coin = "1000") then  --1 euro
+                actual_count<=actual_count+10;
+                else
+                end if;
+        end case;
+    end process;
     count <= std_logic_vector(to_unsigned(actual_count, count'length));
+    ok_cuenta<=ok_cuenta_aux;
 end Behavioral;
