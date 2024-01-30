@@ -39,23 +39,39 @@ Port ( clk : in STD_LOGIC;
        count: in STD_LOGIC_VECTOR (6 downto 0);
        digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0);
-       
-               num_ud:out std_logic_vector(3 downto 0);
-               num_dec:out std_logic_vector(3 downto 0);
+       num_ud:out std_logic_vector(3 downto 0);
+       num_dec:out std_logic_vector(3 downto 0);
        DP : out std_logic);
 end DISPLAY_CH;
 
 architecture Behavioral of DISPLAY_CH is
 signal segment_aux: std_logic_vector(6 downto 0);
 -- DECLARACION
+    component SYNCHRONIZER is
+    port (
+        CLK : in std_logic;
+        ASYNC_IN : in std_logic;
+        SYNC_OUT : out std_logic
+        );
+    end component;
+    
+    component EDGEDETECTOR is
+    port (
+        CLK : in std_logic;
+        SYNC_IN : in std_logic;
+        EDGE : out std_logic
+        );
+    end component;
+
     component CHANGE is
-        Port ( reset : in STD_LOGIC;
-               clk : in STD_LOGIC;
-               option: in STD_LOGIC_vECTOR(2 downto 0); --100 agua; 010 coca; 001 cafe
-               reassemble: in STD_LOGIC;
-               count : in STD_LOGIC_VECTOR (6 downto 0);
-               change: out STD_LOGIC_VECTOR (6 downto 0)
-         );
+    port (
+        reset : in STD_LOGIC;
+        clk : in STD_LOGIC;
+        option: in STD_LOGIC_vECTOR(2 downto 0); --100 agua; 010 coca; 001 cafe
+        reassemble: in STD_LOGIC;
+        count : in STD_LOGIC_VECTOR (6 downto 0);
+        change: out STD_LOGIC_VECTOR (6 downto 0)
+        );
     end component;
     component decoder is
         Port ( 
@@ -72,15 +88,45 @@ signal segment_aux: std_logic_vector(6 downto 0);
     signal number_unidades: std_logic_vector(3 downto 0);
     signal number_decenas: std_logic_vector(3 downto 0);
     signal clk_aux: std_logic;
-    signal decoder_in: std_logic_vector(3 downto 0);
+    signal decoder_in: std_logic_vector(3 downto 0);    
+    --cambios:
+    signal reset_async: std_logic;
+    signal reset_sync: std_logic;
+    signal reassemble_async: std_logic;
+    signal reassemble_sync: std_logic;
+    signal reset_aux: std_logic;
+    signal reassemble_aux: std_logic;
 
 begin
 --INSTANCIACIÓN
+
+    inst_SYNCHRONIZER_reset: SYNCHRONIZER port map(
+        CLK=>clk_aux,
+        ASYNC_IN => reset_async,
+        SYNC_OUT => reset_sync
+        );
+    inst_SYNCHRONIZER_reassemble: SYNCHRONIZER port map(
+        CLK=>clk_aux,
+        ASYNC_IN => reassemble_async,
+        SYNC_OUT => reassemble_sync
+        );
+    
+    inst_EDGEDETECTOR_reset: EDGEDETECTOR port map(
+        CLK =>clk_aux,
+        SYNC_IN => reset_sync,
+        EDGE => reset_aux
+        );
+     inst_EDGEDETECTOR_reassemble: EDGEDETECTOR port map(
+        CLK =>clk_aux,
+        SYNC_IN => reassemble_sync,
+        EDGE => reassemble_aux
+        );
+        
     inst_CHANGE: CHANGE port map(
-    reset=> reset,
+    reset=> reset_aux,
     clk =>clk_aux,
     option=>option,
-    reassemble=> reassemble,
+    reassemble=> reassemble_aux,
     count =>count,
     change=>change_signal
     );
@@ -104,7 +150,7 @@ reloj_1ms: process(clk_aux)
      end process;
      
      
-     digit_seleccion: process(digit_cycle) --number_decenas,number_unidades)
+     digit_seleccion: process(digit_cycle) 
      begin
         case (digit_cycle) is
             when '0' =>
@@ -127,6 +173,10 @@ reloj_1ms: process(clk_aux)
      number_decenas <= std_logic_vector(to_unsigned(integer_change / 10, 4));
      num_ud<=number_unidades;
      num_dec<=number_decenas;
+     
+     --cambios:
+     reset_async<=reset;
+     reassemble_async<=reassemble;
 
 end Behavioral;
 

@@ -17,8 +17,6 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -42,9 +40,30 @@ end DISPLAY_ERR;
 
 architecture Behavioral of DISPLAY_ERR is
 signal segment_aux: std_logic_vector(6 downto 0);
+signal reset_async:std_logic;
+signal reset_sync:std_logic;
+signal reset_aux:std_logic;
+signal clk_aux:std_logic;
 ------
 --DECLARACIÓN
 ------
+    
+    component SYNCHRONIZER is
+    port (
+        CLK : in std_logic;
+        ASYNC_IN : in std_logic;
+        SYNC_OUT : out std_logic
+        );
+    end component;
+    
+    component EDGEDETECTOR is
+    port (
+        CLK : in std_logic;
+        SYNC_IN : in std_logic;
+        EDGE : out std_logic
+        );
+    end component;
+    
     component ERROR is
         Port (
             error : IN std_logic;
@@ -59,13 +78,29 @@ begin
 ------
 --INSTANCIACIÓN
 ------
+    inst_SYNCHRONIZER: SYNCHRONIZER port map(
+        CLK=>clk_aux,
+        ASYNC_IN => reset_async,
+        SYNC_OUT => reset_sync
+        );
+    
+    inst_EDGEDETECTOR: EDGEDETECTOR port map(
+        CLK =>clk_aux,
+        SYNC_IN => reset_sync,
+        EDGE => reset_aux
+        );
+    
     inst_ERROR: ERROR port map(
         error => input_error,
-        reset => reset,
+        reset => reset_aux,
         CLK => clk,
         led => led,
         digsel => digsel,
         segment_error => segment_aux
      );
+     
     segment<=segment_aux;
+    reset_aux<=reset;
+    clk_aux <= clk;
+
 end Behavioral;

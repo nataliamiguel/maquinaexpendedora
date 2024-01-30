@@ -75,22 +75,23 @@ begin
     
     calcular_cambio: process (clk, estado_actual,option)
     begin
-        case (estado_actual) is
-            when S0 =>
-                change<="0000000";
-            when S5 =>
-                change<= (count-"0001010"); --AGUA 1€ 
-                --multiplicamos 1€ por 10 para quitar la parte decimal(si la hubiera)
-                --10 en binario es 1010 -> 0001010
-            when S6 =>
-                change<= (count-"0010010"); --COCA 1.8€
-                -- 18 en binario es 0010010
-            when S7 =>
-                change<= (count-"0000111"); --CAFE 0.7€
-                -- 7 en binario es 0000111
-        end case;
+        if rising_edge(clk) then
+            case (estado_actual) is
+                when S0 =>
+                    change<="0000000";
+                when S5 =>
+                    change<= (count-"0001010"); --AGUA 1€ 
+                    --multiplicamos 1€ por 10 para quitar la parte decimal(si la hubiera)
+                    --10 en binario es 1010 -> 0001010
+                when S6 =>
+                    change<= (count-"0010010"); --COCA 1.8€
+                    -- 18 en binario es 0010010
+                when S7 =>
+                    change<= (count-"0000111"); --CAFE 0.7€
+                    -- 7 en binario es 0000111
+            end case;
+        end if;
     end process;
     
    
 end Behavioral;
-
