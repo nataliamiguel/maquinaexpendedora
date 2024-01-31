@@ -48,6 +48,7 @@ architecture Behavioral of COUNTER is
     signal estado_siguiente: ESTADO:=S1; 
     signal  actual_count : natural range 0 to 99:=0;
     signal ok_cuenta_aux: std_logic:='0';
+    signal coin_anterior: std_logic:='0';
     begin
     process(clk, reset)
     begin
@@ -68,22 +69,28 @@ architecture Behavioral of COUNTER is
         else
            --estado_siguiente <= S1;
         end if;
-    end process;
-        
+    end process;  
     process (clk, estado_actual,coin)
     begin
         case (estado_actual) is
             when s0=>
                 actual_count<= 0;
             when s1=>
-                if (Coin = "0001") then  --10 cent
+                if(coin'event) then
+                coin_anterior<='1';
+                end if;
+                if (Coin_anterior = '1' and coin ="0001") then  --10 cent
                 actual_count<=actual_count+1;
-                elsif (Coin = "0010") then  --20 cent
+                coin_anterior<='0';
+                elsif (Coin_anterior = '1' and coin ="0010") then  --20 cent
                 actual_count<=actual_count+2;
-                elsif (Coin = "0100") then  --50 cent
+                coin_anterior<='0';
+                elsif (Coin_anterior = '1' and coin ="0100") then  --50 cent
                 actual_count<=actual_count+5;
-                elsif (Coin = "1000") then  --1 euro
+                coin_anterior<='0';
+                elsif (Coin_anterior = '1' and coin ="1000") then  --1 euro
                 actual_count<=actual_count+10;
+                coin_anterior<='0';
                 else
                 end if;
         end case;

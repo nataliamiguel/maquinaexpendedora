@@ -61,17 +61,15 @@ architecture Behavioral of DISPLAY_COUNTER is
     component SYNCHRNZR is
         Port ( 
                 CLK : in STD_LOGIC;
-                ASYNC_IN : in STD_LOGIC_VECTOR (3 downto 0);
-                SYNC_OUT : out STD_LOGIC_vector(3 downto 0);
-                RESET: in std_logic
+                ASYNC_IN : in STD_LOGIC;
+                SYNC_OUT : out STD_LOGIC
          );
     end component;
-    component edgectr is
+    component edgedtctr is
         Port ( 
-                RESET : in std_logic;
                 CLK : in STD_LOGIC;
-                SYNC_IN : in STD_LOGIC_vector(3 downto 0);
-                EDGE : out STD_LOGIC_vector(3 downto 0)
+                SYNC_IN : in STD_LOGIC;
+                EDGE : out STD_LOGIC
          );
     end component;
     component Debouncer is
@@ -91,42 +89,122 @@ architecture Behavioral of DISPLAY_COUNTER is
        signal number_vector: std_logic_vector(6 downto 0);
        signal decoder_in: std_logic_vector(3 downto 0);
        signal clk_aux: std_logic;
-       signal sync_aux: std_logic_vector(3 downto 0);
-       signal async_aux: std_logic_vector(3 downto 0); 
-       signal coin_aux : std_logic_vector(3 downto 0);
+       signal sync_aux_10_cent: std_logic;
+       signal sync_aux_20_cent: std_logic;
+       signal sync_aux_50_cent: std_logic;
+       signal sync_aux_100_cent: std_logic;
+       signal async_aux_10_cent: std_logic;
+       signal async_aux_20_cent: std_logic;
+       signal async_aux_50_cent: std_logic;
+       signal async_aux_100_cent: std_logic; 
+       signal coin_out_10_cent : std_logic;
+       signal coin_out_20_cent : std_logic;
+       signal coin_out_50_cent : std_logic;
+       signal coin_out_100_cent : std_logic;
        signal digsel_aux: std_logic_vector(7 downto 0):=(others=>'0');
-       signal btn_out: std_logic_vector(3 downto 0);
-       signal coin_in_aux : std_logic_vector(3 downto 0);
+       signal coin_in_aux: std_logic_vector(3 downto 0);
+       signal coin_in_10_cent : std_logic;
+       signal coin_in_20_cent : std_logic;
+       signal coin_in_50_cent : std_logic;
+       signal coin_in_100_cent : std_logic;
 begin 
-    inst_Debouncer: Debouncer  port map(
-    clk =>clk_aux,
-    btn_in=>sync_aux,
-    Coin_out=>btn_out
+     inst_SYNCHRNZR_10cent: synchrnzr  port map(
+        Clk=>clk_aux,
+        async_in=>coin_in_10_cent,
+        sync_out=>sync_aux_10_cent
+    );
+        inst_Edgectr_10cent: edgedtctr  port map(
+        clk=>clk_aux,
+        sync_in=>sync_aux_10_cent,
+        edge=>coin_out_10_cent
+    );
+    inst_SYNCHRNZR_20cent: synchrnzr  port map(
+        Clk=>clk_aux,
+        async_in=>coin_in_20_cent,
+        sync_out=>sync_aux_20_cent
+    );
+    inst_Edgectr_20cent: edgedtctr  port map(
+       clk=>clk_aux,
+       sync_in=>sync_aux_20_cent,
+        edge=>coin_out_20_cent
+    );
+    inst_SYNCHRNZR_50cent: synchrnzr  port map(
+        Clk=>clk_aux,
+        async_in=>coin_in_50_cent,
+        sync_out=>sync_aux_50_cent
+    );
+    inst_Edgectr_50cent: edgedtctr  port map(
+        clk=>clk_aux,
+        sync_in=>sync_aux_50_cent,
+        edge=>coin_out_50_cent
+    );
+    inst_SYNCHRNZR_100cent: synchrnzr  port map(
+        Clk=>clk_aux,
+        async_in=>coin_in_100_cent,
+        sync_out=>sync_aux_100_cent
+    );
+    inst_Edgectr_100cent: edgedtctr  port map(
+        clk=>clk_aux,
+        sync_in=>sync_aux_100_cent,
+        edge=>coin_out_100_cent
     );
     inst_COUNTER: COUNTER  port map(
     reset=> reset_aux,
     clk =>clk_aux,
-    Coin=>coin_aux,
+    Coin=>coin_in_aux,
     ok=>ok_in,
     count =>number_vector,
     ok_cuenta=>ok_aux
     );
-    inst_SYNCHRNZR: synchrnzr  port map(
-        reset=>reset_aux,
-        Clk=>clk_aux,
-        async_in=>coin_in_aux,
-        sync_out=>sync_aux
-    );
+   
     inst_DECODER: Decoder  port map(
         code=>decoder_in,
         segment=>segment_out
     );
-    inst_Edgectr: edgectr  port map(
-        reset=>reset_aux,
-        sync_in=>btn_out,
-        clk=>clk_aux,
-        edge=>coin_aux
-    );
+        process(coin_in)
+     begin
+     case coin_in is
+    when "0001" =>
+        coin_in_10_cent <= '1';
+        coin_in_20_cent <= '0';
+        coin_in_50_cent <= '0';
+        coin_in_100_cent <= '0';
+    when "0010" =>
+        coin_in_10_cent <= '0';
+        coin_in_20_cent <= '1';
+        coin_in_50_cent <= '0';
+        coin_in_100_cent <= '0';
+    when "0100" =>
+        coin_in_10_cent <= '0';
+        coin_in_20_cent <= '0';
+        coin_in_50_cent <= '1';
+        coin_in_100_cent <= '0';
+    when "1000" =>
+        coin_in_10_cent <= '0';
+        coin_in_20_cent <= '0';
+        coin_in_50_cent <= '0';
+        coin_in_100_cent <= '1';
+     when others =>
+        coin_in_10_cent <= '0';
+        coin_in_20_cent <= '0';
+        coin_in_50_cent <= '0';
+        coin_in_100_cent <= '0';
+   end case;
+        end process;
+      process(coin_out_10_cent,coin_out_20_cent,coin_out_50_cent,coin_out_100_cent)
+      begin
+      if(coin_out_10_cent = '1') then
+        coin_in_aux<="0001";
+     elsif(coin_out_20_cent = '1') then
+        coin_in_aux<="0010";
+     elsif(coin_out_50_cent = '1') then
+        coin_in_aux<="0100";
+    elsif(coin_out_100_cent = '1') then
+        coin_in_aux<="1000";
+     else
+        coin_in_aux<="0000";
+        end if;
+       end process; 
     reloj_1ms: process(clk_aux)
  begin
         if (rising_edge(clk_aux)) then
@@ -152,8 +230,9 @@ begin
              when others=>
        end case;
      end process;
+
       clk_aux <= clk;
-      coin_in_aux<=coin_in;
+      --coin_in_aux<=coin_in;
       ok_out<=ok_aux;
       reset_aux<=reset;
       count <= number_vector;
