@@ -112,7 +112,18 @@ Port (  clk : in STD_LOGIC;
         DP : out std_logic;
         error : out std_logic);        
 end component;
-    
+
+component FSM is
+port(
+    clk: in std_logic;
+    reset:in std_logic;
+    SW_in: IN std_logic_vector(3 DOWNTO 0);
+    DP: out std_logic;
+    digsel: out std_logic_vector (7 downto 0);
+    led: out std_logic_vector (15 downto 0);
+    segments:out std_logic_vector(6 downto 0)
+    );
+end component;    
 
 begin
 
@@ -158,49 +169,16 @@ inst_DISPLAY_ERR: DISPLAY_ERR port map(
        segment=>segment_aux4
 );
 
+inst_FSM: FSM port map(
+    clk=> clk_aux,
+    reset=>reset_aux,
+    SW_in=> SW_in,
+    DP=>DP,
+    digsel=>digsel,
+    led=>led,
+    segments=>segments
+);
 
-    process (clk_aux,reset_aux)
-    begin
-        if (reset_aux='0') then
-            estado_actual<=COUNTER_STATE;
-        elsif (rising_edge(clk_aux)) then
-        estado_actual<=estado_siguiente;
-        end if;
-    end process;
-
-    process (estado_actual,ok_counter,segment_aux1,DP_aux1,digsel_aux1,ok_option,segment_aux2,DP_aux2,DP_aux2,digsel_aux2,segment_aux4,digsel_aux4,led_aux)
-    begin
-        case estado_actual is
-        when COUNTER_STATE=>
-            if (ok_counter='1') then
-            estado_siguiente<=OPTIONS_STATE;
-            ok_counter<='0';
-            segments<=segment_aux1;
-            DP<=DP_aux1; 
-            digsel<=digsel_aux1;
-            end if;
-        when OPTIONS_STATE=>
-            if (ok_option='1') then
-            estado_siguiente<=CHANGE_STATE;
-            segments<=segment_aux2;
-            DP<=DP_aux2; 
-            digsel<=digsel_aux2;
-            end if;
-        when CHANGE_STATE=>
-            if (falling_edge(ok_option)) then
-            estado_siguiente<=ERROR_STATE;  
-           segments<=segment_aux3; 
-           DP<=DP_aux3;
-           digsel<=digsel_aux3;
-            end if;    
-            when ERROR_STATE=>
-            ok_option<='1';
-            estado_siguiente<=COUNTER_STATE;
-            segments<=segment_aux4;
-            digsel<=digsel_aux4;
-            led<=led_aux;
-        end case;   
-    end process;
     error_aux<=not ok_option;
     sw_aux<=sw_in(3 downto 1);
     clk_aux<=clk;
