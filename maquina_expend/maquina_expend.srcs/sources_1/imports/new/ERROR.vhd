@@ -92,10 +92,10 @@ error_display: process(error, reset,digsel_change)
                         segment_error <= "0110000"; -- E (activo a nivel bajo)
                     when 1 =>
                         digsel <= "11111101";
-                        segment_error <= "1101110"; -- r
+                        segment_error <= "1111010"; -- r
                     when 2=>
                         digsel <= "11111110";
-                        segment_error <= "1101110"; -- r
+                        segment_error <= "1111010"; -- r
                     when others=>
                         digsel <= "11111111";
                         segment_error <= "1111111";
