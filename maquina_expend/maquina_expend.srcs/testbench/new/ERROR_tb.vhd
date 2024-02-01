@@ -1,4 +1,3 @@
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
@@ -17,16 +16,18 @@ architecture TB_ARCH of ERROR_TB is
       CLK             : in std_logic;
       digsel          : out std_logic_vector(7 downto 0);
       segment_error   : out std_logic_vector(6 downto 0);
-      enciende_led    : out boolean
+      led: OUT std_logic_vector(15 downto 0)
+     -- enciende_led    : out boolean
     );
   end component;
   
   signal error_tb          : std_logic := '0';
   signal reset_tb          : std_logic := '0';
   signal CLK_TB            : std_logic := '0';
+  signal led_tb: std_logic_vector(15 downto 0):= (others => '0');
   signal digsel_tb         : std_logic_vector(7 downto 0) := (others => '0');
   signal segment_error_tb  : std_logic_vector(6 downto 0) := (others => '0');
-  signal enciende_led_tb   : boolean := false;
+  --signal enciende_led_tb   : boolean := false;
 
   constant CLOCK_PERIOD    : time := 10 ns; -- Adjust the period as needed  
   
@@ -38,7 +39,9 @@ architecture TB_ARCH of ERROR_TB is
       CLK             => CLK_TB,
       digsel          => digsel_tb,
       segment_error   => segment_error_tb,
-      enciende_led    => enciende_led_tb
+      led =>led_tb
+      
+      --enciende_led    => enciende_led_tb
     );
 
 
