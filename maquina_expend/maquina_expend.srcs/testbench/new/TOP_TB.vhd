@@ -39,7 +39,7 @@ end TOP_TB;
 
 architecture SIM of TOP_TB is
 signal CLK_TB: std_logic := '0';
-    signal RESET_TB: std_logic := '0';
+    signal RESET_TB: std_logic := '1';
     signal COIN_TB: std_logic_vector(3 downto 0) := "0000";
     signal REASSEMBLE_TB: std_logic := '0';
     signal SW_IN_TB: std_logic_vector(3 downto 0) := "0000";
@@ -49,10 +49,23 @@ signal CLK_TB: std_logic := '0';
     signal LED_TB: std_logic_vector(15 downto 0);
 
     constant CLOCK_PERIOD: time := 10 ns;
+    COMPONENT TOP
+    port(
+    CLK: IN std_logic;
+    reset: in std_logic;
+    COIN: IN std_logic_vector(3 DOWNTO 0);
+    reassemble: IN std_logic;
+    SW_in: IN std_logic_vector(3 DOWNTO 0);
+    digsel: OUT std_logic_vector(7 DOWNTO 0);
+    segments: out std_logic_vector(6 downto 0); 
+    DP: out std_logic;
+    led: OUT std_logic_vector(15 downto 0) 
+    );
+end COMPONENT;
 begin
 
 -- Instantiate the unit under test
-    UUT: entity work.Top
+    UUT: Top
         port map (
             CLK => CLK_TB,
             RESET => RESET_TB,
@@ -78,9 +91,6 @@ process
     process
     begin
               -- Assert reset
-        wait for 10 ns;
-        reset_tb <= '0';  -- De-assert reset
-        sw_in_tb(0)<='0';
         -- Test case 1: Counter State
         wait for 1 ms;
         coin_tb <= "1000";  -- Set coin input  -- Set SW input for Counter State

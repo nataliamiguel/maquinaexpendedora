@@ -39,8 +39,8 @@ Port (  clk : in STD_LOGIC;
         digsel : out STD_LOGIC_VECTOR ( 7 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
         DP : out std_logic;
-        error : out std_logic);
-        
+        error : out std_logic;
+        ok_op: out std_logic);
 end DISPLAY_OPTION;
 
 architecture Behavioral of DISPLAY_OPTION is
@@ -157,5 +157,5 @@ case (digit_ctrl) is
 end process;
 
 option_aux <= sw;
-        
+ok_op<=importe_ok_aux;        
 end Behavioral;

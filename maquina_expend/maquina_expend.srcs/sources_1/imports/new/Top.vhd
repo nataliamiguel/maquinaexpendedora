@@ -66,7 +66,10 @@ architecture Behavioral of Top is
     signal error_aux:std_logic;
     signal led_aux:std_logic_vector(15 downto 0);
     signal sw_aux: std_logic_vector(2 downto 0);
-    
+    signal digsel_all_aux: std_logic_vector(31 downto 0);
+    signal segment_all_aux:std_logic_vector(27 downto 0);
+    signal dp_all_aux:std_logic_vector(2 downto 0);
+    signal led_all_aux:std_logic_vector(15 downto 0); 
     
     
    component DISPLAY_COUNTER is
@@ -110,17 +113,24 @@ Port (  clk : in STD_LOGIC;
         digsel : out STD_LOGIC_VECTOR (7 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
         DP : out std_logic;
+        ok_op: out std_logic;
         error : out std_logic);        
 end component;
 
 component FSM is
 port(
     clk: in std_logic;
+    digsel_all:in std_logic_vector(31 downto 0);
+    segment_all:in std_logic_vector(27 downto 0);
+    dp_all:in std_logic_vector(2 downto 0);
+    led_all:in std_logic_vector(15 downto 0); 
     reset:in std_logic;
     SW_in: IN std_logic_vector(3 DOWNTO 0);
     DP: out std_logic;
     digsel: out std_logic_vector (7 downto 0);
     led: out std_logic_vector (15 downto 0);
+    ok_count:in std_logic;
+    ok_opt:in std_logic;
     segments:out std_logic_vector(6 downto 0)
     );
 end component;    
@@ -143,6 +153,7 @@ inst_DISPLAY_COUNTER: DISPLAY_COUNTER Port map (
         reset=>reset_aux,
         count=>count_aux,
         sw=> sw_aux,
+        ok_op=>ok_option,
         digsel =>digsel_aux2,
         segment=> segment_aux2,
         error=> error_aux,
@@ -171,15 +182,24 @@ inst_DISPLAY_ERR: DISPLAY_ERR port map(
 
 inst_FSM: FSM port map(
     clk=> clk_aux,
+    digsel_all=>digsel_all_aux,
+    segment_all=>segment_all_aux,
+    dp_all=>dp_all_aux,
+    led_all=>led_all_aux,
     reset=>reset_aux,
     SW_in=> SW_in,
     DP=>DP,
     digsel=>digsel,
     led=>led,
+    ok_opt=>ok_option,
+    ok_count=>ok_counter,
     segments=>segments
 );
-
-    error_aux<=not ok_option;
+    digsel_all_aux<=digsel_aux1 & digsel_aux2 & digsel_aux3 & digsel_aux4;
+    segment_all_aux<=segment_aux1 & segment_aux2 & segment_aux3 & segment_aux4;
+    dp_all_aux<=DP_aux1 & DP_aux2 & DP_aux3;
+    led_all_aux<=led_aux;
+    error_aux<=not ok_option; 
     sw_aux<=sw_in(3 downto 1);
     clk_aux<=clk;
     reset_aux<=not reset;

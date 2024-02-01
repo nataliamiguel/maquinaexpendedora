@@ -34,7 +34,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity FSM is
 port(
     clk: in std_logic;
+    digsel_all:in std_logic_vector(31 downto 0);
+    segment_all:in std_logic_vector(27 downto 0);
+    dp_all:in std_logic_vector(2 downto 0);
+    led_all:in std_logic_vector(15 downto 0); 
     reset:in std_logic;
+    ok_count:in std_logic;
+    ok_opt:in std_logic;
     SW_in: IN std_logic_vector(3 DOWNTO 0);
     DP: out std_logic;
     digsel: out std_logic_vector (7 downto 0);
@@ -72,33 +78,34 @@ process (estado_actual,ok_counter,segment_aux1,DP_aux1,digsel_aux1,ok_option,seg
             if (ok_counter='1') then
             estado_siguiente<=OPTIONS_STATE;
             ok_counter<='0';
-            segments<=segment_aux1;
-            DP<=DP_aux1; 
-            digsel<=digsel_aux1;
+            segments<=segment_all(27 downto 21);
+            DP<=DP_all(2); 
+            digsel<=digsel_all(31 downto 24);
             end if;
         when OPTIONS_STATE=>
             if (ok_option='1') then
             estado_siguiente<=CHANGE_STATE;
-            segments<=segment_aux2;
-            DP<=DP_aux2; 
-            digsel<=digsel_aux2;
+            segments<=segment_all(20 downto 14);
+            DP<=DP_all(1); 
+            digsel<=digsel_all(23 downto 16);
             end if;
         when CHANGE_STATE=>
             if (falling_edge(ok_option)) then
             estado_siguiente<=ERROR_STATE;  
-           segments<=segment_aux3; 
-           DP<=DP_aux3;
-           digsel<=digsel_aux3;
+           segments<=segment_all(13 downto 7); 
+           DP<=DP_all(0);
+           digsel<=digsel_all(15 downto 8);
             end if;    
             when ERROR_STATE=>
             ok_option<='1';
             estado_siguiente<=COUNTER_STATE;
-            segments<=segment_aux4;
-            digsel<=digsel_aux4;
-            led<=led_aux;
+            segments<=segment_all(6 downto 0);
+            digsel<=digsel_all(7 downto 0);
+            led<=led_all;
         end case;   
     end process;
-    
+  ok_counter<=ok_count;
+  ok_option<=ok_opt;  
    -- error_aux<=not ok_option;
   --  sw_aux<=sw_in(3 downto 1);
    -- clk_aux<=clk;
