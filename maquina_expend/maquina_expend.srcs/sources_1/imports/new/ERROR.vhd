@@ -36,10 +36,10 @@ PORT (
     error : IN std_logic;
     reset : IN STD_LOGIC;
     CLK : IN STD_LOGIC;
-    --led: OUT std_logic_vector(15 downto 0);
+    led: OUT std_logic_vector(15 downto 0);
     digsel: OUT std_logic_vector(7 downto 0);
-    segment_error : OUT std_logic_vector(6 DOWNTO 0); 
-    enciende_led: out boolean   
+    segment_error : OUT std_logic_vector(6 DOWNTO 0) 
+    
 );
 end ERROR;
 
@@ -50,7 +50,7 @@ signal counter_1ms: natural range 0 to 99999 := 0;
 
 --Para cambiar de digsel:
 signal digsel_change: natural range 0 to 7 := 0;
-
+signal enciende_led:  boolean :=false;  
 begin
 
     reloj_1ms: process(CLK)
@@ -108,6 +108,15 @@ error_display: process(error, reset,digsel_change)
         
 end process;
 
+
+process (enciende_led)
+begin
+    if (enciende_led=true) then
+        led<=(others=>'1');
+     else
+        led<=(others=>'0');
+    end if;
+end process;
 
 end Behavioral;
 

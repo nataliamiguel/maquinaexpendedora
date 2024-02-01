@@ -44,6 +44,7 @@ signal reset_async:std_logic;
 signal reset_sync:std_logic;
 signal reset_aux:std_logic;
 signal clk_aux:std_logic;
+signal enciende_led_aux:boolean:=false;
 ------
 --DECLARACIÓN
 ------
@@ -97,7 +98,9 @@ begin
         led => led,
         digsel => digsel,
         segment_error => segment_aux
+        
      );
+     
      
     segment<=segment_aux;
     reset_aux<=reset;
