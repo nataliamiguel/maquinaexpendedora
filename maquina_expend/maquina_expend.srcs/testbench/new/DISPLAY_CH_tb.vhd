@@ -12,7 +12,7 @@ architecture TB of DISPLAY_CH_tb is
     signal option_tb  : std_logic_vector(2 downto 0) := "000";
     signal reassemble_tb : std_logic := '0';
     signal count_tb   : std_logic_vector(6 downto 0) := "0000000";
-
+    signal ok_start_disp_change_tb: std_logic:='0';
     signal digsel_tb  : std_logic_vector(7 downto 0);
     signal segment_tb : std_logic_vector(6 downto 0);
     signal num_ud_tb  : std_logic_vector(3 downto 0);
@@ -29,6 +29,7 @@ architecture TB of DISPLAY_CH_tb is
             option     : in STD_LOGIC_VECTOR(2 downto 0);
             reassemble : in STD_LOGIC;
             count      : in STD_LOGIC_VECTOR(6 downto 0);
+            ok_start_disp_change: in std_logic;
             digsel     : out STD_LOGIC_VECTOR(7 downto 0);
             segment    : out STD_LOGIC_VECTOR(6 downto 0);
             num_ud     : out std_logic_vector(3 downto 0);
@@ -49,6 +50,7 @@ begin
             option     => option_tb,
             reassemble => reassemble_tb,
             count      => count_tb,
+            ok_start_disp_change=>ok_start_disp_change_tb,
             digsel     => digsel_tb,
             segment    => segment_tb,
             num_ud     => num_ud_tb,
@@ -70,13 +72,16 @@ begin
     end process;
 process
 begin
-      count_tb<="0101101";
+      count_tb<="0101101"; 
+     -- count_tb<="0010100";
       option_tb<="100";
+      ok_start_disp_change_tb<='0';
       wait for 300 ns;
-      option_tb<="010";
-      wait for 300ns;
-      option_tb<="001";
-      wait for 300 ns;
+      ok_start_disp_change_tb<='1';
+      --option_tb<="010";
+     -- wait for 300ns;
+     -- option_tb<="001";
+     -- wait for 300 ns;
       wait;      
 end process;
       
@@ -84,15 +89,15 @@ end process;
     stimulus_process: process
     begin
         -- Puedes ajustar aquí tus señales de estímulo según sea necesario
-        reset_tb <= '1';
+        --reset_tb <= '1';
         wait for 50 ns;
        reset_tb <= '0';
        wait for 50ns;
-       reset_tb <= '1';
+      -- reset_tb <= '1';
        wait for 500 ns;
        reset_tb <= '0';
        wait for 50ns;
-       reset_tb <= '1';
+      -- reset_tb <= '1';
         wait for 1000 ns;
         stimulus_done <= true;
         wait;

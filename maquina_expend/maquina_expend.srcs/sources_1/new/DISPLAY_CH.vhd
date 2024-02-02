@@ -167,10 +167,16 @@ reloj_1ms: process(clk_aux)
                 DP <= '1';
             when others=>
                 DP <= '0';
-       end case;
-       end if;
+        end case;
+     else 
+          digsel <=(others=>'1'); -- todos los digsel desactivados
+          --segment_aux<="1111110"; 
+          DP <= '0';
+          --change_signal<=(others=>'0');
+     end if;
      end process;
      
+    
      clk_aux <= clk;
      segment<=segment_aux;
      integer_change <= to_integer(unsigned(change_signal));
@@ -184,4 +190,6 @@ reloj_1ms: process(clk_aux)
      reassemble_async<=reassemble;
 
 end Behavioral;
+
+
 

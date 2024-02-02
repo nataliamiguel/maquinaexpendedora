@@ -59,6 +59,8 @@ begin
         elsif(rising_edge(clk)) then
             if (ok_change='1')then
                 estado_actual <= estado_siguiente;
+            else
+                
             end if;
         end if;
     end process;
