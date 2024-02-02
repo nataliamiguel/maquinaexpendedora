@@ -153,8 +153,9 @@ reloj_1ms: process(clk_aux)
      end process;
      
      
-     digit_seleccion: process(digit_cycle) 
+     digit_seleccion: process(digit_cycle,ok_start_disp_change) 
      begin
+     if(ok_start_disp_change = '1') then
         case (digit_cycle) is
             when '0' =>
                 digsel <= "11111011";
@@ -167,6 +168,7 @@ reloj_1ms: process(clk_aux)
             when others=>
                 DP <= '0';
        end case;
+       end if;
      end process;
      
      clk_aux <= clk;

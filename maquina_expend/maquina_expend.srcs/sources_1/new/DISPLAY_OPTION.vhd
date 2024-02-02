@@ -101,9 +101,9 @@ reloj_1ms: process(clk)
           end if;
      end if;
  end process;
-
-digit_control: process(digit_ctrl,sw)
+digit_control: process(digit_ctrl,sw,ok_start_disp_option)
 begin  
+if(ok_start_disp_option = '1') then
 case (digit_ctrl) is
       when 0 =>
         digsel <= "10111111";
@@ -155,10 +155,9 @@ case (digit_ctrl) is
              when others => segment <= "1111111";         
          end case;
  end case; 
-      
+ end if;     
 
 end process;
-
 option_aux <= sw;
 ok_op<=importe_ok_aux;        
 end Behavioral;
