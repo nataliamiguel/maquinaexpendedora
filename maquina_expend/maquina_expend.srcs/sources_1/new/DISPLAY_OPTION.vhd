@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 
 
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -92,72 +93,85 @@ reloj_1ms: process(clk)
  begin
      if (rising_edge(clk)) then
         counter_1ms <= counter_1ms + 1;
-         if (counter_1ms >= 99999) then
+        if (counter_1ms >= 9) then
+       -- if (counter_1ms >= 99999) then 
              counter_1ms <= 0;
              digit_ctrl <= digit_ctrl + 1;
              if (digit_ctrl > 5)then
                  digit_ctrl <= 0;
              end if;
-          end if;
+        end if;
      end if;
  end process;
+ 
 digit_control: process(digit_ctrl,sw,ok_start_disp_option)
 begin  
-if(ok_start_disp_option = '1') then
-case (digit_ctrl) is
-      when 0 =>
-        digsel <= "10111111";
-        DP <= '1';
-          case (sw) is 
-             when "100" => segment <= "1001111"; -- Imprime un 1
-             when "010" => segment <= "1001111"; -- Imprime un 1
-             when "001" => segment <= "0000001"; -- Imprime un 0
-             when others => segment <= "1111111";
-              --DP <= '1';
-          end case;                 
-      when 1 =>
-        digsel <= "11011111";
-          case(sw) is 
-             when "100" => segment <= "0000001"; -- Imprime un 0 
-             when "010" => segment <= "0000000"; -- Imprime un 8
-             when "001" => segment <= "0001111"; -- Imprime un 7
-             when others => segment <= "1111111";
-          end case;    
-      when 2 =>
-        digsel <= "11110111";
-         case(sw) is 
-             when "100" => segment <= "0001000"; -- Imprime una A 
-             when "010" => segment <= "1001110"; -- Imprime una C
-             when "001" => segment <= "1001110"; -- Imprime una C
-             when others => segment <= "1111111";
-            end case;    
-      when 3 =>
-        digsel <= "11111011";
-         case(sw) is 
-             when "100" => segment <= "0100000"; -- Imprime una G
-             when "010" => segment <= "0000001"; -- Imprime una O
-             when "001" => segment <= "0001000"; -- Imprime una A 
-             when others => segment <= "1111111";
-           end case;       
-      when 4 =>
-        digsel <= "11111101";
-         case(sw) is 
-             when "100" => segment <= "1000001"; -- Imprime una U
-             when "010" => segment <= "1001110"; -- Imprime una C
-             when "001" => segment <= "0111000"; -- Imprime una F 
-             when others => segment <= "1111111";        
-         end case;
-      when 5 =>
-        digsel <= "11111110";         case(sw) is 
-             when "100" => segment <= "0001000"; -- Imprime una A
-             when "010" => segment <= "0001000"; -- Imprime una A
-             when "001" => segment <= "0110000"; -- Imprime una E 
-             when others => segment <= "1111111";         
-         end case;
- end case; 
- end if;     
+    if(ok_start_disp_option = '1') then
+        case (digit_ctrl) is
+              when 0 =>
+                digsel <= "10111111";
+                DP <= '1';
+                  case (sw) is 
+                     when "100" => segment <= "1001111"; -- Imprime un 1
+                     when "010" => segment <= "1001111"; -- Imprime un 1
+                     when "001" => segment <= "0000001"; -- Imprime un 0
+                     when others => segment <= "1111111";
+                      --DP <= '1';
+                  end case;                 
+              when 1 =>
+                digsel <= "11011111";
+                DP <= '0';
+                  case(sw) is 
+                     when "100" => segment <= "0000001"; -- Imprime un 0 
+                     when "010" => segment <= "0000000"; -- Imprime un 8
+                     when "001" => segment <= "0001111"; -- Imprime un 7
+                     when others => segment <= "1111111";
+                  end case;    
+              when 2 =>
+                digsel <= "11110111";
+                DP <= '0';
+                 case(sw) is 
+                     when "100" => segment <= "0001000"; -- Imprime una A 
+                     when "010" => segment <= "1001110"; -- Imprime una C
+                     when "001" => segment <= "1001110"; -- Imprime una C
+                     when others => segment <= "1111111";
+                    end case;    
+              when 3 =>
+                digsel <= "11111011";
+                DP <= '0';
+                 case(sw) is 
+                     when "100" => segment <= "0100000"; -- Imprime una G
+                     when "010" => segment <= "0000001"; -- Imprime una O
+                     when "001" => segment <= "0001000"; -- Imprime una A 
+                     when others => segment <= "1111111";
+                   end case;       
+              when 4 =>
+                digsel <= "11111101";
+                DP <= '0';
+                 case(sw) is 
+                     when "100" => segment <= "1000001"; -- Imprime una U
+                     when "010" => segment <= "1001110"; -- Imprime una C
+                     when "001" => segment <= "0111000"; -- Imprime una F 
+                     when others => segment <= "1111111";        
+                 end case;
+              when 5 =>
+                digsel <= "11111110";         
+                DP <= '0';
+                case(sw) is 
+                     when "100" => segment <= "0001000"; -- Imprime una A
+                     when "010" => segment <= "0001000"; -- Imprime una A
+                     when "001" => segment <= "0110000"; -- Imprime una E 
+                     when others => segment <= "1111111";         
+                 end case;
+         end case; 
+     else
+        DP <= '0';
+        segment <= "1111110";
+        digsel <= "11111111"; 
+     end if;     
 
 end process;
 option_aux <= sw;
-ok_op<=importe_ok_aux;        
+ok_op<=importe_ok_aux;  
+error<=error_aux;      
 end Behavioral;
