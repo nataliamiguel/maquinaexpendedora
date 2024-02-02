@@ -37,6 +37,7 @@ entity COMPARE is
            price : in STD_LOGIC_VECTOR (6 downto 0);
            count : in STD_LOGIC_VECTOR (6 downto 0);
            reset : in STD_LOGIC;
+           ok_compare: in std_logic;
            option: in STD_LOGIC_VECTOR (2 downto 0);
            importe_ok : out STD_LOGIC;
            error : out STD_LOGIC
@@ -60,7 +61,9 @@ begin
         if (reset = '0') then
             estado_actual <= S0;
         elsif (rising_edge(clk)) then
-            estado_actual <= estado_siguiente;
+            if (ok_compare='1') then
+                estado_actual <= estado_siguiente;
+            end if;
         end if;
     end process;
     

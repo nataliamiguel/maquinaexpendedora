@@ -37,6 +37,7 @@ Port ( clk : in STD_LOGIC;
        option: in STD_LOGIC_VECTOR (2 downto 0);
        reassemble: in STD_LOGIC;
        count: in STD_LOGIC_VECTOR (6 downto 0);
+       ok_start_disp_change: in std_logic;
        digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0);
        num_ud:out std_logic_vector(3 downto 0);
@@ -70,6 +71,7 @@ signal segment_aux: std_logic_vector(6 downto 0);
         option: in STD_LOGIC_vECTOR(2 downto 0); --100 agua; 010 coca; 001 cafe
         reassemble: in STD_LOGIC;
         count : in STD_LOGIC_VECTOR (6 downto 0);
+        ok_change: in std_logic;        
         change: out STD_LOGIC_VECTOR (6 downto 0)
         );
     end component;
@@ -126,6 +128,7 @@ begin
     reset=> reset_aux,
     clk =>clk_aux,
     option=>option,
+    ok_change=>ok_start_disp_change,
     reassemble=> reassemble_aux,
     count =>count,
     change=>change_signal

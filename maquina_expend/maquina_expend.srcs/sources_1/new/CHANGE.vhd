@@ -36,6 +36,7 @@ entity CHANGE is
            option: in STD_LOGIC_vECTOR(2 downto 0); --100 agua; 010 coca; 001 cafe
            reassemble: in STD_LOGIC;
            count : in STD_LOGIC_VECTOR (6 downto 0);
+           ok_change: in std_logic;
            change: out STD_LOGIC_VECTOR (6 downto 0)
      );
 end CHANGE;
@@ -49,14 +50,16 @@ begin
     
     process(clk, reset, reassemble)
     begin
-        if (reset = '0') then --activo a nivel bajo
+        if (reset = '1') then --activo a nivel bajo
             estado_actual <= S0;
         elsif (reassemble='1') then --si has recogido el cambio y pulsas 'reassemble', vuelve al estado inicial
             if (estado_actual = S5 or estado_actual = S6 or estado_actual = S7) then
                 estado_actual<=S0;
             end if;
         elsif(rising_edge(clk)) then
-            estado_actual <= estado_siguiente;
+            if (ok_change='1')then
+                estado_actual <= estado_siguiente;
+            end if;
         end if;
     end process;
 

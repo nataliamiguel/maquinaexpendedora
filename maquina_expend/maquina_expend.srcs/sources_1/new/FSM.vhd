@@ -71,6 +71,15 @@ architecture Behavioral of FSM is
   --  signal sw_aux: std_logic_vector(2 downto 0);
 begin
 
+process(clk, reset)
+    begin
+        if (reset = '1') then
+            estado_actual <= COUNTER_STATE;
+        elsif (rising_edge(clk)) then
+            estado_actual <= estado_siguiente;
+        end if;
+    end process;
+
 process (estado_actual,ok_counter,segment_aux1,DP_aux1,digsel_aux1,ok_option,segment_aux2,DP_aux2,DP_aux2,digsel_aux2,segment_aux4,digsel_aux4,led_aux)
     begin
         case estado_actual is

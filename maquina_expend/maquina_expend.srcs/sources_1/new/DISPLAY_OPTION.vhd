@@ -35,6 +35,7 @@ entity DISPLAY_OPTION is
 Port (  clk : in STD_LOGIC;
         reset : in STD_LOGIC;
         count: in STD_LOGIC_VECTOR (6 downto 0);
+        ok_start_disp_option: in std_logic;
         sw: in STD_LOGIC_VECTOR (2 downto 0);
         digsel : out STD_LOGIC_VECTOR ( 7 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
@@ -50,6 +51,7 @@ architecture Behavioral of DISPLAY_OPTION is
            price : in STD_LOGIC_VECTOR (6 downto 0);
            count : in STD_LOGIC_VECTOR (6 downto 0);
            reset : in STD_LOGIC;
+           ok_compare: in std_logic;
            option: in STD_LOGIC_VECTOR (2 downto 0);
            importe_ok : out STD_LOGIC;
            error : out std_logic);
@@ -79,6 +81,7 @@ begin
  inst_COMPARE: COMPARE  port map(
     reset=> reset_aux,
     clk =>clk_aux,
+    ok_compare=>ok_start_disp_option,
     price=>price_aux,
     count=>count_aux,
     option=>option_aux,

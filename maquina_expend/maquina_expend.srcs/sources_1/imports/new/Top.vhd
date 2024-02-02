@@ -91,6 +91,7 @@ architecture Behavioral of Top is
        option: in STD_LOGIC_VECTOR (2 downto 0);
        reassemble: in STD_LOGIC;
        count: in STD_LOGIC_VECTOR (6 downto 0);
+       ok_start_disp_change: in std_logic;
        digsel : out STD_LOGIC_VECTOR (7 downto 0);
        segment : out STD_LOGIC_VECTOR (6 downto 0);
        DP : out std_logic);
@@ -110,6 +111,7 @@ Port (  clk : in STD_LOGIC;
         reset : in STD_LOGIC;
         count: in STD_LOGIC_VECTOR (6 downto 0);
         sw: in STD_LOGIC_VECTOR (2 downto 0);
+        ok_start_disp_option:in std_logic;
         digsel : out STD_LOGIC_VECTOR (7 downto 0);
         segment : out STD_LOGIC_VECTOR (6 downto 0);
         DP : out std_logic;
@@ -154,6 +156,7 @@ inst_DISPLAY_COUNTER: DISPLAY_COUNTER Port map (
         count=>count_aux,
         sw=> sw_aux,
         ok_op=>ok_option,
+        ok_start_disp_option=>ok_counter,
         digsel =>digsel_aux2,
         segment=> segment_aux2,
         error=> error_aux,
@@ -165,6 +168,7 @@ inst_DISPLAY_CH: DISPLAY_CH port map(
        reset =>reset_aux,
        option=>sw_aux,
        reassemble=> reassemble,
+       ok_start_disp_change=>ok_option,
        count=>count_aux,
        digsel =>digsel_aux3,
        segment=>segment_aux3,
