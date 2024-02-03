@@ -18,8 +18,6 @@
 -- 
 ----------------------------------------------------------------------------------
 
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -49,13 +47,13 @@ architecture Behavioral of DISPLAY_OPTION is
 -- DECLARACION
  component COMPARE is
    Port ( clk : in STD_LOGIC;
-           price : in STD_LOGIC_VECTOR (6 downto 0);
+          -- price : in STD_LOGIC_VECTOR (6 downto 0);
            count : in STD_LOGIC_VECTOR (6 downto 0);
            reset : in STD_LOGIC;
            ok_compare: in std_logic;
            option: in STD_LOGIC_VECTOR (2 downto 0);
            importe_ok : out STD_LOGIC;
-           error : out std_logic);
+           error_comp : out std_logic);
  end component;              
  
  component decoder is
@@ -77,22 +75,24 @@ architecture Behavioral of DISPLAY_OPTION is
   signal final_ctrl: natural range 0 to 1 := 0;
   signal sw_state: std_logic_vector(2 downto 0) := "000";
   signal digsel_value: std_logic_vector(3 downto 0);
+  signal ok_start_aux: std_logic;
         
 begin
  inst_COMPARE: COMPARE  port map(
     reset=> reset_aux,
     clk =>clk_aux,
-    ok_compare=>ok_start_disp_option,
-    price=>price_aux,
+    ok_compare=>ok_start_aux ,
+   -- price=>price_aux,
     count=>count_aux,
     option=>option_aux,
-    error =>error_aux,
+    error_comp =>error_aux,
     importe_ok=>importe_ok_aux
     );
 reloj_1ms: process(clk)
  begin
      if (rising_edge(clk)) then
         counter_1ms <= counter_1ms + 1;
+       
         if (counter_1ms >= 9) then
        -- if (counter_1ms >= 99999) then 
              counter_1ms <= 0;
@@ -167,11 +167,22 @@ begin
      else
         DP <= '0';
         segment <= "1111110";
-        digsel <= "11111111"; 
+        digsel <= "11111111";
+       
      end if;     
 
 end process;
-option_aux <= sw;
-ok_op<=importe_ok_aux;  
-error<=error_aux;      
+    clk_aux<=clk;
+    reset_aux<=reset;
+    count_aux<=count;
+    option_aux <= sw;
+    ok_start_aux<= ok_start_disp_option; 
+    
+    
+    ok_op<=importe_ok_aux;  
+    error<=error_aux; 
+   
+   
+    
+   
 end Behavioral;

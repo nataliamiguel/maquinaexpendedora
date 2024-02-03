@@ -17,7 +17,6 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
@@ -77,18 +76,22 @@ BEGIN
   -- Stimulus process
   stim_proc: PROCESS
   BEGIN
-
-    reset_tb <= '0';
+    --ok_start_disp_option_tb <= '0';
+    reset_tb <= '1';
+   -- count_tb<="0010100"; --cuenta de 2€
+   -- sw_tb<="100"; --elijo agua que vale 1€: error tiene que ser 0 y ok_op 1
+  
+   -- wait for 300 ns;
+    ok_start_disp_option_tb <= '1';
+    --wait for 100 ns;
     count_tb<="0010100"; --cuenta de 2€
     sw_tb<="100"; --elijo agua que vale 1€: error tiene que ser 0 y ok_op 1
-    ok_start_disp_option_tb <= '1';
-    wait for 300 ns;
-    --ok_start_disp_option_tb <= '1';
-    wait for 100 ns;
     --reset_tb <= '1';
     wait for 100 ns;
-    --ok_start_disp_option_tb <= '0';
-
+    
+    reset_tb <= '0';
+    ok_start_disp_option_tb <= '1';
+    wait for 100 ns;
     -- Add more stimulus as needed
 
     wait;
