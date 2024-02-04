@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 31.01.2024 19:53:50
+-- Create Date: 02.02.2024 12:21:02
 -- Design Name: 
--- Module Name: TOP_TB - Behavioral
+-- Module Name: NewTop2_tb - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,8 +21,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -33,52 +31,59 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
 entity TOP_TB is
---  Port ( );
+-- No ports
 end TOP_TB;
 
-architecture SIM of TOP_TB is
-signal CLK_TB: std_logic := '0';
-    signal RESET_TB: std_logic := '1';
-    signal COIN_TB: std_logic_vector(3 downto 0) := "0000";
-    signal REASSEMBLE_TB: std_logic := '0';
-    signal SW_IN_TB: std_logic_vector(3 downto 0) := "0000";
-    signal DIGSEL_TB: std_logic_vector(7 downto 0);
-    signal SEGMENTS_TB: std_logic_vector(6 downto 0);
-    signal DP_TB: std_logic;
-    signal LED_TB: std_logic_vector(15 downto 0);
+architecture TB_ARCH of TOP_TB is
+    signal clk_tb: std_logic := '0';
+    signal reset_tb: std_logic := '1';
+    signal coin_tb: std_logic_vector(3 downto 0) := "0000";
+    signal reassemble_tb: std_logic := '0';
+    signal sw_in_tb: std_logic_vector(3 downto 0) := "0000";
+
+    signal digsel_aux1_tb: std_logic_vector(7 downto 0);
+    signal segment_aux1_tb: std_logic_vector(6 downto 0);
+    signal DP_aux1_tb: std_logic;
+    signal led_aux_tb: std_logic_vector(15 downto 0);
+    signal error_aux_tb: std_logic;
+    signal sw_aux_tb: std_logic_vector(2 downto 0);
 
     constant CLOCK_PERIOD: time := 10 ns;
-    COMPONENT TOP
-    port(
+    
+    component Top is
+        PORT (
     CLK: IN std_logic;
     reset: in std_logic;
     COIN: IN std_logic_vector(3 DOWNTO 0);
     reassemble: IN std_logic;
     SW_in: IN std_logic_vector(3 DOWNTO 0);
-    digsel: OUT std_logic_vector(7 DOWNTO 0);
+    digsels: OUT std_logic_vector(7 DOWNTO 0);
     segments: out std_logic_vector(6 downto 0); 
     DP: out std_logic;
-    led: OUT std_logic_vector(15 downto 0) 
-    );
-end COMPONENT;
-begin
-
--- Instantiate the unit under test
-    UUT: Top
-        port map (
-            CLK => CLK_TB,
-            RESET => RESET_TB,
-            COIN => COIN_TB,
-            REASSEMBLE => REASSEMBLE_TB,
-            SW_IN => SW_IN_TB,
-            DIGSEL => DIGSEL_TB,
-            SEGMENTS => SEGMENTS_TB,
-            DP => DP_TB,
-            LED => LED_TB
+    led: OUT std_logic_vector(15 downto 0)  
         );
+    end component;
 
-process
+begin
+    UUT: Top port map (
+        CLK => clk_tb,
+        reset => reset_tb,
+        COIN => coin_tb,
+        reassemble => reassemble_tb,
+        SW_in => sw_in_tb,
+        digsels => digsel_aux1_tb,
+        segments => segment_aux1_tb,
+        DP => DP_aux1_tb,
+        led => led_aux_tb
+    );
+
+    CLK_PROCESS: process
     begin
          while now < 50 ms loop  -- simulate for 5000 ns 
             clk_tb <= not clk_tb;
@@ -87,27 +92,16 @@ process
         wait;
     end process;
 
-    -- Stimulus process
-    process
+    STIMULUS_PROCESS: process
     begin
-              -- Assert reset
-        -- Test case 1: Counter State
+        
+        wait for 1 ms;        
+        coin_tb <= "1000";  
+        wait for 1 ms;        
+        coin_tb <= "0000";
         wait for 1 ms;
-        coin_tb <= "1000";  -- Set coin input  -- Set SW input for Counter State
-        wait for 5 ms;
-        coin_tb<= "0000";
-        -- Test case 2: Options State  -- Set SW input for Options State
-        wait for 1ms;
-        sw_in_tb(0)<='1';
-        -- Test case 3: Change State-- Set reassemble input
-        wait for 10 ms;
-        sw_in_tb(1)<='1';
-        -- Test case 4: Error State
-        wait for 10ms;
-        reassemble_tb<='1';
-        -- Add more test cases as needed
-
+        sw_in_tb <= "1001";  
+        
         wait;
     end process;
-
-end sim;
+end TB_ARCH;

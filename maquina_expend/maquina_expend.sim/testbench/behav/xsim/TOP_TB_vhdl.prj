@@ -15,7 +15,7 @@ vhdl xil_defaultlib  \
 "../../../../maquina_expend.srcs/sources_1/new/SYNCHRNZR.vhd" \
 "../../../../maquina_expend.srcs/sources_1/new/SYNCHRONIZER.vhd" \
 "../../../../maquina_expend.srcs/sources_1/imports/new/Top.vhd" \
-"../../../../maquina_expend.srcs/testbench/new/NewTop2_tb.vhd" \
+"../../../../maquina_expend.srcs/testbench/new/TOP_TB.vhd" \
 
 # Do not sort compile order
 nosort

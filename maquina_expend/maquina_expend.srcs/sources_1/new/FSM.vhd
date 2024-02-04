@@ -80,7 +80,7 @@ process(clk, reset)
         end if;
     end process;
 
-process (estado_siguiente,ok_counter,segment_aux1,DP_aux1,digsel_aux1,ok_option,segment_aux2,DP_aux2,DP_aux2,digsel_aux2,segment_aux4,digsel_aux4,led_aux)
+process (estado_siguiente)
     begin
         case estado_actual is
         when COUNTER_STATE=>

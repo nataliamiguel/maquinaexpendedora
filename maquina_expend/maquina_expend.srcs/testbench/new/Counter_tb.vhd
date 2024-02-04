@@ -27,10 +27,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity TB_DISPLAY_COUNTER is
-end TB_DISPLAY_COUNTER;
+entity TB_DISPLAY_COUNTERS is
+end TB_DISPLAY_COUNTERS;
 
-architecture TESTBENCH of TB_DISPLAY_COUNTER is
+architecture TESTBENCH of TB_DISPLAY_COUNTERS is
 
   signal clk_tb: STD_LOGIC := '0';
   signal reset_tb: STD_LOGIC := '0';
