@@ -34,8 +34,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity FSM is
 port(
     clk: in std_logic;
-    digsel_all:in std_logic_vector(31 downto 0);
-    segment_all:in std_logic_vector(27 downto 0);
+    digsel_all:in std_logic_vector(31 downto 0):=(others=>'0');
+    segment_all:in std_logic_vector(27 downto 0):=(others=>'0');
     dp_all:in std_logic_vector(2 downto 0);
     led_all:in std_logic_vector(15 downto 0); 
     reset:in std_logic;
@@ -80,32 +80,34 @@ process(clk, reset)
         end if;
     end process;
 
-process (estado_actual,ok_counter,segment_aux1,DP_aux1,digsel_aux1,ok_option,segment_aux2,DP_aux2,DP_aux2,digsel_aux2,segment_aux4,digsel_aux4,led_aux)
+process (estado_siguiente,ok_counter,segment_aux1,DP_aux1,digsel_aux1,ok_option,segment_aux2,DP_aux2,DP_aux2,digsel_aux2,segment_aux4,digsel_aux4,led_aux)
     begin
         case estado_actual is
         when COUNTER_STATE=>
             if (ok_counter='1') then
             estado_siguiente<=OPTIONS_STATE;
             ok_counter<='0';
+            end if;
             segments<=segment_all(27 downto 21);
             DP<=DP_all(2); 
             digsel<=digsel_all(31 downto 24);
-            end if;
+            
         when OPTIONS_STATE=>
             if (ok_option='1') then
             estado_siguiente<=CHANGE_STATE;
+            end if;
             segments<=segment_all(20 downto 14);
             DP<=DP_all(1); 
             digsel<=digsel_all(23 downto 16);
-            end if;
         when CHANGE_STATE=>
             if (falling_edge(ok_option)) then
-            estado_siguiente<=ERROR_STATE;  
-           segments<=segment_all(13 downto 7); 
-           DP<=DP_all(0);
-           digsel<=digsel_all(15 downto 8);
-            end if;    
-            when ERROR_STATE=>
+            estado_siguiente<=ERROR_STATE;
+            end if;  
+            segments<=segment_all(13 downto 7); 
+            DP<=DP_all(0);
+            digsel<=digsel_all(15 downto 8);
+                
+        when ERROR_STATE=>
             ok_option<='1';
             estado_siguiente<=COUNTER_STATE;
             segments<=segment_all(6 downto 0);

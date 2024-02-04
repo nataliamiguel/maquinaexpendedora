@@ -39,7 +39,7 @@ PORT (
     COIN: IN std_logic_vector(3 DOWNTO 0);
     reassemble: IN std_logic;
     SW_in: IN std_logic_vector(3 DOWNTO 0);
-    digsel: OUT std_logic_vector(7 DOWNTO 0);
+    digsels: OUT std_logic_vector(7 DOWNTO 0);
     segments: out std_logic_vector(6 downto 0); 
     DP: out std_logic;
     led: OUT std_logic_vector(15 downto 0) 
@@ -66,10 +66,10 @@ architecture Behavioral of Top is
     signal error_aux:std_logic;
     signal led_aux:std_logic_vector(15 downto 0);
     signal sw_aux: std_logic_vector(2 downto 0);
-    signal digsel_all_aux: std_logic_vector(31 downto 0);
-    signal segment_all_aux:std_logic_vector(27 downto 0);
-    signal dp_all_aux:std_logic_vector(2 downto 0);
-    signal led_all_aux:std_logic_vector(15 downto 0); 
+    signal digsel_all_aux: std_logic_vector(31 downto 0):=(others=>'0');
+    signal segment_all_aux:std_logic_vector(27 downto 0):=(others=>'0');
+    signal dp_all_aux:std_logic_vector(2 downto 0):=(others=>'0');
+    signal led_all_aux:std_logic_vector(15 downto 0):=(others=>'0'); 
     
     
    component DISPLAY_COUNTER is
@@ -193,7 +193,7 @@ inst_FSM: FSM port map(
     reset=>reset_aux,
     SW_in=> SW_in,
     DP=>DP,
-    digsel=>digsel,
+    digsel=>digsels,
     led=>led,
     ok_opt=>ok_option,
     ok_count=>ok_counter,

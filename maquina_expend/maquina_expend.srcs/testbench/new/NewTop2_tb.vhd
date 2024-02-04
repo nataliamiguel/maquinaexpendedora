@@ -47,9 +47,9 @@ architecture TB_ARCH of NewTop2_tb is
     signal reassemble_tb: std_logic := '0';
     signal sw_in_tb: std_logic_vector(3 downto 0) := "0000";
 
-    signal digsel_aux1_tb, digsel_aux2_tb, digsel_aux3_tb, digsel_aux4_tb: std_logic_vector(7 downto 0);
-    signal segment_aux1_tb, segment_aux2_tb, segment_aux3_tb, segment_aux4_tb: std_logic_vector(6 downto 0);
-    signal DP_aux1_tb, DP_aux2_tb, DP_aux3_tb: std_logic;
+    signal digsel_aux1_tb: std_logic_vector(7 downto 0);
+    signal segment_aux1_tb: std_logic_vector(6 downto 0);
+    signal DP_aux1_tb: std_logic;
     signal led_aux_tb: std_logic_vector(15 downto 0);
     signal error_aux_tb: std_logic;
     signal sw_aux_tb: std_logic_vector(2 downto 0);
@@ -63,7 +63,7 @@ architecture TB_ARCH of NewTop2_tb is
             COIN: IN std_logic_vector(3 DOWNTO 0);
             reassemble: IN std_logic;
             SW_in: IN std_logic_vector(3 DOWNTO 0);
-            digsel: OUT std_logic_vector(7 DOWNTO 0);
+            digsels: OUT std_logic_vector(7 DOWNTO 0);
             segments: out std_logic_vector(6 downto 0);
             DP: out std_logic;
             led: OUT std_logic_vector(15 downto 0) 
@@ -77,7 +77,7 @@ begin
         COIN => coin_tb,
         reassemble => reassemble_tb,
         SW_in => sw_in_tb,
-        digsel => digsel_aux1_tb,
+        digsels => digsel_aux1_tb,
         segments => segment_aux1_tb,
         DP => DP_aux1_tb,
         led => led_aux_tb
@@ -95,19 +95,12 @@ begin
     STIMULUS_PROCESS: process
     begin
         
-        reset_tb <= '1';  
-        wait for 100 ns;        
+        wait for 1 ms;        
         coin_tb <= "1000";  
-        wait for 10 ns;
-        coin_tb <= "0000";  
-         wait for 10 ns;
-        coin_tb <= "1000";  
-        wait for 10 ns;
-        coin_tb <= "0000";  
-        wait for 10 ns;
-        
-        sw_in_tb <= "1001";  -- Simula un valor de interruptor de 6
-        
+        wait for 1 ms;        
+        coin_tb <= "0000";
+        wait for 1 ms;
+        sw_in_tb <= "1001";  
         
         wait;
     end process;
