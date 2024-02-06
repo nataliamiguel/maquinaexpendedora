@@ -93,8 +93,7 @@ reloj_1ms: process(clk)
      if (rising_edge(clk)) then
         counter_1ms <= counter_1ms + 1;
        
-        if (counter_1ms >= 9) then
-       -- if (counter_1ms >= 99999) then 
+        if (counter_1ms >= 99999) then
              counter_1ms <= 0;
              digit_ctrl <= digit_ctrl + 1;
              if (digit_ctrl > 5)then
